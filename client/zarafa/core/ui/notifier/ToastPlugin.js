@@ -181,7 +181,7 @@ Zarafa.core.ui.notifier.ToastPlugin = Ext.extend(Zarafa.core.ui.notifier.NotifyP
 		}
 		var msgEl = toast.querySelector('.grommunio-toast-message');
 		if (msgEl && message) {
-			msgEl.textContent = message;
+			msgEl.innerHTML = message;
 		}
 
 		toast._toastId = toastId;
@@ -446,7 +446,7 @@ Zarafa.core.ui.notifier.ToastPlugin = Ext.extend(Zarafa.core.ui.notifier.NotifyP
 					titleEl.textContent = title;
 				}
 				if (msgEl && message) {
-					msgEl.textContent = message;
+					msgEl.innerHTML = message;
 				}
 				return config.reference;
 			}
