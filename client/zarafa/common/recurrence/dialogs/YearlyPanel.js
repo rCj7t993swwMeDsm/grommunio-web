@@ -27,7 +27,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 			defaults: {
 				border: false,
 				bodyStyle: 'background-color: inherit;',
-				height: 25
+				height: 30
 			},
 			items: [
 				this.createEveryNYearssPanel(),
@@ -66,7 +66,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 					labelSplitter: '{A}',
 					allowNegative: false,
 					minValue: 1,
-					width: 50,
+					width: 65,
 					listeners: {
 						change: this.onYearlyChange,
 						scope: this
@@ -109,7 +109,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 					ref: '../../monthCombo',
 					name: 'recurrence_month',
 					labelSplitter: '{A}',
-					width: 100,
+					width: 130,
 					store: {
 						xtype: 'jsonstore',
 						fields: ['name', 'value'],
@@ -137,7 +137,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 					allowNegative: false,
 					minValue: 1,
 					maxValue: 31,
-					width: 50,
+					width: 65,
 					listeners: {
 						change: this.onYearlyMonthChange,
 						scope: this
@@ -173,14 +173,14 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 				xtype: 'zarafa.compositefield',
 				plugins: [ 'zarafa.splitfieldlabeler' ],
 				fieldLabel: _('The {A} {B} of {C}'),
-				labelWidth: 75,
+				labelWidth: 85,
 				columnWidth: 1,
 				items: [{
 					xtype: 'combo',
 					ref: '../../dayRankCombo',
 					name: 'recurrence_nday',
 					labelSplitter: '{A}',
-					width: 80,
+					width: 110,
 					store: {
 						xtype: 'jsonstore',
 						fields: ['name', 'value'],
@@ -203,7 +203,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 					ref: '../../weekdayCombo',
 					name: 'recurrence_weekdays',
 					labelSplitter: '{B}',
-					width: 100,
+					width: 130,
 					store: {
 						xtype: 'jsonstore',
 						fields: ['name', 'value'],
@@ -226,7 +226,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 					ref: '../../monthWeekdayCombo',
 					name: 'recurrence_month',
 					labelSplitter: '{C}',
-					width: 100,
+					width: 130,
 					store: {
 						xtype: 'jsonstore',
 						fields: ['name', 'value'],

@@ -26,7 +26,7 @@ Zarafa.common.recurrence.dialogs.WeeklyPanel = Ext.extend(Zarafa.common.recurren
 			defaults: {
 				border: false,
 				bodyStyle: 'background-color: inherit;',
-				height: 25
+				height: 30
 			},
 			items: [
 				this.createEveryNWeeksPanel(),
@@ -74,7 +74,7 @@ Zarafa.common.recurrence.dialogs.WeeklyPanel = Ext.extend(Zarafa.common.recurren
 					labelSplitter: '{A}',
 					allowNegative: false,
 					minValue: 1,
-					width: 50,
+					width: 65,
 					listeners: {
 						change: this.onWeeklyChange,
 						scope: this

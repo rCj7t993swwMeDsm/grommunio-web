@@ -117,7 +117,7 @@ Zarafa.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 			},
 			title: _('Recurrence pattern'),
 			anchor: '100%',
-			height: 160,
+			height: 170,
 			items: [{
 				xtype: 'radiogroup',
 				ref: '../recurrencePatternSelect',
@@ -226,7 +226,7 @@ Zarafa.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 					border: false,
 					bodyStyle: 'background-color: inherit;',
 					defaults: {
-						height: 25,
+						height: 30,
 						labelWidth: 75
 					}
 				},

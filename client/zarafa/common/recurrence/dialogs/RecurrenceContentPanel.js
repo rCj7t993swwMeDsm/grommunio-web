@@ -51,7 +51,7 @@ Zarafa.common.recurrence.dialogs.RecurrenceContentPanel = Ext.extend(Zarafa.core
 			},
 			autoSave: false,
 			width: 720,
-			height: 480,
+			height: 500,
 			items: [{
 				xtype: 'zarafa.recurrencepanel',
 				ref: 'recurrencePanel',

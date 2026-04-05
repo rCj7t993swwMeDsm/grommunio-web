@@ -27,7 +27,7 @@ Zarafa.common.recurrence.dialogs.DailyPanel = Ext.extend(Zarafa.common.recurrenc
 			defaults: {
 				border: false,
 				bodyStyle: 'background-color: inherit;',
-				height: 25
+				height: 30
 			},
 			items: [
 				this.createEveryNDaysPanel(),
@@ -75,7 +75,7 @@ Zarafa.common.recurrence.dialogs.DailyPanel = Ext.extend(Zarafa.common.recurrenc
 					labelSplitter: '{A}',
 					allowNegative: false,
 					minValue: 1,
-					width: 50,
+					width: 65,
 					listeners: {
 						change: this.onEveryNDaysChange,
 						scope: this

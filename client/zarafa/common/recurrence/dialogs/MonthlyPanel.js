@@ -27,7 +27,7 @@ Zarafa.common.recurrence.dialogs.MonthlyPanel = Ext.extend(Zarafa.common.recurre
 			defaults: {
 				border: false,
 				bodyStyle: 'background-color: inherit;',
-				height: 25
+				height: 30
 			},
 			items: [
 				this.createEveryNDayOfMonthPanel(),
@@ -76,7 +76,7 @@ Zarafa.common.recurrence.dialogs.MonthlyPanel = Ext.extend(Zarafa.common.recurre
 					allowNegative: false,
 					minValue: 1,
 					maxValue: 31,
-					width: 50,
+					width: 65,
 					listeners: {
 						change: this.onMonthlyNDayOfMonthChange,
 						scope: this
@@ -89,7 +89,7 @@ Zarafa.common.recurrence.dialogs.MonthlyPanel = Ext.extend(Zarafa.common.recurre
 					labelSplitter: '{B}',
 					allowNegative: false,
 					minValue: 1,
-					width: 50,
+					width: 65,
 					listeners: {
 						change: this.onMonthlyNDayOfMonthChange,
 						scope: this
@@ -125,14 +125,14 @@ Zarafa.common.recurrence.dialogs.MonthlyPanel = Ext.extend(Zarafa.common.recurre
 				xtype: 'zarafa.compositefield',
 				plugins: [ 'zarafa.splitfieldlabeler' ],
 				fieldLabel: _('The {A} {B} of every {C} month(s)'),
-				labelWidth: 200,
+				labelWidth: 220,
 				columnWidth: 1,
 				items: [{
 					xtype: 'combo',
 					ref: '../../weekdayRankCombo',
 					name: 'recurrence_nday',
 					labelSplitter: '{A}',
-					width: 80,
+					width: 110,
 					store: {
 						xtype: 'jsonstore',
 						fields: ['name', 'value'],
@@ -155,7 +155,7 @@ Zarafa.common.recurrence.dialogs.MonthlyPanel = Ext.extend(Zarafa.common.recurre
 					ref: '../../weekdayCombo',
 					name: 'recurrence_weekdays',
 					labelSplitter: '{B}',
-					width: 100,
+					width: 130,
 					store: {
 						xtype: 'jsonstore',
 						fields: ['name', 'value'],
@@ -181,7 +181,7 @@ Zarafa.common.recurrence.dialogs.MonthlyPanel = Ext.extend(Zarafa.common.recurre
 					labelSplitter: '{C}',
 					allowNegative: false,
 					minValue: 1,
-					width: 50,
+					width: 65,
 					listeners: {
 						change: this.onMonthlyNWeekdayOfMonthChange,
 						scope: this
