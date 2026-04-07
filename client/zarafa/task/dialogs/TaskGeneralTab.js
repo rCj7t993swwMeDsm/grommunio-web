@@ -525,7 +525,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			this.subjectPanel.setVisible(false);
 			layout = true;
 		} else {
-			if (taskState === Zarafa.core.mapi.TaskState.OWNER_NEW && !record.isTaskRequest()) {
+			if (contentReset && taskState === Zarafa.core.mapi.TaskState.OWNER_NEW && !record.isTaskRequest()) {
 				this.taskExtraInfo.setVisible(false);
 				this.taskInfoPanel.setVisible(false);
 				this.taskAttachInfo.setVisible(false);
