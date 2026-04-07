@@ -30,6 +30,39 @@ Zarafa.common.form.TextArea = Ext.extend(Ext.form.TextArea, {
 		if (this.enableSystemContextMenu) {
 			this.el.addClass('zarafa-contextmenu-enabled');
 		}
+
+		this.el.on('dragover', this.onFileDragOver, this);
+		this.el.on('drop', this.onFileDrop, this);
+	},
+
+	/**
+	 * Prevent the browser from opening dropped files.
+	 * @param {Ext.EventObject} e The drag event
+	 * @private
+	 */
+	onFileDragOver: function(e)
+	{
+		var dt = e.browserEvent.dataTransfer;
+		if (dt && (Array.prototype.indexOf.call(dt.types, 'Files') >= 0 || dt.files.length > 0)) {
+			e.preventDefault();
+		}
+	},
+
+	/**
+	 * Block file drops and show an error notification. The HTML
+	 * editor (TinyMCE) does this automatically, but the plain text
+	 * textarea has no such handling.
+	 * @param {Ext.EventObject} e The drop event
+	 * @private
+	 */
+	onFileDrop: function(e)
+	{
+		var dt = e.browserEvent.dataTransfer;
+		if (dt && (Array.prototype.indexOf.call(dt.types, 'Files') >= 0 || dt.files.length > 0)) {
+			e.preventDefault();
+			container.getNotifier().notify('error', _('Attachment error'),
+				_('Dropped file type is not supported'));
+		}
 	},
 
 	/**
