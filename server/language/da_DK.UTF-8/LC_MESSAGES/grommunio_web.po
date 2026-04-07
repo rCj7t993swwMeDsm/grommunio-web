@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Danish (Denmark)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 13:52+0200\n"
+"POT-Creation-Date: 2026-04-07 15:11+0200\n"
 "PO-Revision-Date: 2022-07-26 14:28+0200\n"
 "Last-Translator: Mike Williams <mike.williams@grammm.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/grommunio/grommunio-web/da/>\n"
@@ -760,6 +760,18 @@ msgstr "Til"
 msgid "No date"
 msgstr "Ingen dato"
 
+msgid "Forward Meeting Request"
+msgstr "Videresend mødeanmodning"
+
+msgctxt "calendar.actions"
+msgid "Meeting request forwarded"
+msgstr "Mødeanmodning videresendt"
+
+msgid ""
+"The meeting organizer will be notified that you forwarded this meeting "
+"request."
+msgstr "Mødelederen får besked om, at du har videresendt denne mødeanmodning."
+
 msgid "Error"
 msgstr "Fejl"
 
@@ -872,19 +884,16 @@ msgstr "Forekommer hver {0} i kraft {1} indtil {2}."
 msgid "Occurs every {0} {1} effective {2} until {3}."
 msgstr "Forekommer hver {0} {1} i kraft {2} indtil {3}."
 
-msgid "When"
-msgstr "Når"
+msgid "New Meeting Time Proposed"
+msgstr "Forslag til nyt mødetidspunkt"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
 #. meaning of these formatting instructions
 msgid "l jS F Y {0}"
 msgstr "l jS F Y {0}"
 
-msgid "Where"
-msgstr "Hvor"
-
-msgid "New Meeting Time Proposed"
-msgstr "Forslag til nyt mødetidspunkt"
+msgid "Fwd"
+msgstr "VS"
 
 msgid "and "
 msgstr "og "
@@ -912,6 +921,9 @@ msgstr "Sorter efter: Slutdato"
 
 msgid "Organizer"
 msgstr "Arrangør"
+
+msgid "Where"
+msgstr "Hvor"
 
 msgid "Required Attendee"
 msgstr "Krævet tilstedeværelse"
@@ -1209,6 +1221,15 @@ msgstr "Slet"
 msgid "Add attachment"
 msgstr "Tilføj vedhæftning"
 
+msgid "Reply to the meeting organizer"
+msgstr "Svar til mødelederen"
+
+msgid "Reply to all attendees"
+msgstr "Svar til alle deltagere"
+
+msgid "Forward meeting request to additional recipients"
+msgstr "Videresend mødeanmodningen til yderligere modtagere"
+
 msgid "Check names"
 msgstr "Check navne"
 
@@ -1247,6 +1268,13 @@ msgstr "Privat"
 
 msgid "Mark this appointment as private"
 msgstr "Marker denne aftale som privat"
+
+msgctxt "calendar.toolbar"
+msgid "Use Reply All to reply to all attendees of your meeting."
+msgstr "Brug »Svar alle« for at svare alle deltagere i dit møde."
+
+msgid "Re"
+msgstr "SV"
 
 msgid "Message Options"
 msgstr "Meddelelses muligheder"
@@ -1529,6 +1557,10 @@ msgstr "Aftale ikke fundet"
 
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Denne aftale er blevet flyttet eller slettet, vil du fortsætte?"
+
+msgctxt "calendar.contextmenu"
+msgid "Use Reply All to reply to all attendees of your meeting."
+msgstr "Brug »Svar alle« for at svare alle deltagere i dit møde."
 
 msgid "Options"
 msgstr "Muligheder"
@@ -2432,6 +2464,9 @@ msgstr "denne uge"
 msgid "next week"
 msgstr "næste uge"
 
+msgid "Dropped file type is not supported"
+msgstr "Den angivne filtype understøttes ikke"
+
 msgid "Edit recipient"
 msgstr "Ret modtager"
 
@@ -2537,6 +2572,9 @@ msgstr ""
 
 msgid "Add/Edit Cc recipient"
 msgstr "Tilføj/rediger Cc-modtager"
+
+msgid "Resolving recipient"
+msgstr "Bestemmelse af modtager"
 
 msgid "Disable for new mail"
 msgstr "Deaktiver for ny mail"
@@ -4804,12 +4842,6 @@ msgstr "Udskriv valgt e-mail"
 
 msgid "Filter"
 msgstr "Filtrer"
-
-msgid "Fwd"
-msgstr "VS"
-
-msgid "Re"
-msgstr "SV"
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -8179,6 +8211,9 @@ msgstr "Kunne ikke kopiere meddelelsen"
 msgid "Could not move message"
 msgstr "Kunne ikke flytte meddelelsen"
 
+msgid "Could not forward meeting request"
+msgstr "Det var ikke muligt at videresende mødeanmodningen"
+
 msgid "You have insufficient privileges to save items in this folder"
 msgstr ""
 "Du har ikke tilstrækkelige rettigheder til at gemme elementer i denne mappe"
@@ -8263,6 +8298,18 @@ msgstr ""
 
 msgid "The following recipient(s) could not be reached"
 msgstr "Følgende modtager(e) kunne ikke kontaktes"
+
+msgid "l, F j, Y g:i A"
+msgstr "l, j. F Y G:i"
+
+msgid "Your meeting has been forwarded"
+msgstr "Dit møde er blevet videresendt"
+
+msgid "has forwarded your meeting request to others."
+msgstr "har videresendt din mødeanmodning til andre."
+
+msgid "Meeting Time"
+msgstr "Mødetidspunkt"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr ""

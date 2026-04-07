@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Croatian (Croatia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 13:52+0200\n"
+"POT-Creation-Date: 2026-04-07 15:11+0200\n"
 "PO-Revision-Date: 2025-02-25 15:04+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/grommunio/grommunio-web/hr/>\n"
@@ -766,6 +766,20 @@ msgstr "Do"
 msgid "No date"
 msgstr "Nema datuma"
 
+msgid "Forward Meeting Request"
+msgstr "Zahtjev za sastanak"
+
+msgctxt "calendar.actions"
+msgid "Meeting request forwarded"
+msgstr "Zahtjev za sastanak proslijeđen"
+
+msgid ""
+"The meeting organizer will be notified that you forwarded this meeting "
+"request."
+msgstr ""
+"Organizator sastanka bit će obaviješten da ste proslijedili ovaj zahtjev za "
+"sastanak."
+
 msgid "Error"
 msgstr "Greška"
 
@@ -878,19 +892,16 @@ msgstr "Pojavljuje se svakog{0}na snazi ​​od{1}do{2}."
 msgid "Occurs every {0} {1} effective {2} until {3}."
 msgstr "Pojavljuje se svakih{0}{1}na snazi ​​od{2}do{3}."
 
-msgid "When"
-msgstr "Kada"
+msgid "New Meeting Time Proposed"
+msgstr "Predloženo novo vrijeme sastanka"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
 #. meaning of these formatting instructions
 msgid "l jS F Y {0}"
 msgstr "l j. n. Y. {0}"
 
-msgid "Where"
-msgstr "Gdje"
-
-msgid "New Meeting Time Proposed"
-msgstr "Predloženo novo vrijeme sastanka"
+msgid "Fwd"
+msgstr "Fwd"
 
 msgid "and "
 msgstr "i "
@@ -918,6 +929,9 @@ msgstr "Razvrstaj po: Datum završetka"
 
 msgid "Organizer"
 msgstr "Organizator"
+
+msgid "Where"
+msgstr "Gdje"
 
 msgid "Required Attendee"
 msgstr "Obavezni sudionik"
@@ -1211,6 +1225,15 @@ msgstr "Izbrisati"
 msgid "Add attachment"
 msgstr "Dodaj privitak"
 
+msgid "Reply to the meeting organizer"
+msgstr "Odgovori organizatoru sastanka"
+
+msgid "Reply to all attendees"
+msgstr "Odgovori svim sudionicima"
+
+msgid "Forward meeting request to additional recipients"
+msgstr "Proslijedi zahtjev za sastanak dodatnim primateljima"
+
 msgid "Check names"
 msgstr "Provjerite imena"
 
@@ -1249,6 +1272,14 @@ msgstr "Privatno"
 
 msgid "Mark this appointment as private"
 msgstr "Označi ovaj termin kao privatan"
+
+msgctxt "calendar.toolbar"
+msgid "Use Reply All to reply to all attendees of your meeting."
+msgstr ""
+"Upotrijebite Odgovori svima da odgovorite svim sudionicima vašeg sastanka."
+
+msgid "Re"
+msgstr "Ponovno"
 
 msgid "Message Options"
 msgstr "Mogućnosti poruke"
@@ -1529,6 +1560,11 @@ msgstr "Termin nije pronađen"
 
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Ovaj termin je premješten ili izbrisan, želite li nastaviti?"
+
+msgctxt "calendar.contextmenu"
+msgid "Use Reply All to reply to all attendees of your meeting."
+msgstr ""
+"Upotrijebite Odgovori svima da odgovorite svim sudionicima vašeg sastanka."
 
 msgid "Options"
 msgstr "Mogućnosti"
@@ -2404,6 +2440,9 @@ msgstr "ovaj tjedan"
 msgid "next week"
 msgstr "sljedeći tjedan"
 
+msgid "Dropped file type is not supported"
+msgstr "Podržani tip datoteke nije naveden."
+
 msgid "Edit recipient"
 msgstr "Uredi primatelja"
 
@@ -2509,6 +2548,9 @@ msgstr ""
 
 msgid "Add/Edit Cc recipient"
 msgstr "Dodaj/uredi primatelja kopije"
+
+msgid "Resolving recipient"
+msgstr "Rješavanje primatelja"
 
 msgid "Disable for new mail"
 msgstr "Onemogući za novu poštu"
@@ -4781,12 +4823,6 @@ msgstr "Ispis odabrane e-pošte"
 
 msgid "Filter"
 msgstr "Filter"
-
-msgid "Fwd"
-msgstr "Fwd"
-
-msgid "Re"
-msgstr "Ponovno"
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -8107,6 +8143,9 @@ msgstr "Nije moguće kopirati poruku"
 msgid "Could not move message"
 msgstr "Nije moguće premjestiti poruku"
 
+msgid "Could not forward meeting request"
+msgstr "Nije moguće proslijediti zahtjev za sastanak"
+
 msgid "You have insufficient privileges to save items in this folder"
 msgstr "Nemate dovoljno ovlasti za spremanje stavki u ovoj mapi"
 
@@ -8176,6 +8215,18 @@ msgstr "Vaša poruka nije stigla do nekih ili svih primatelja"
 
 msgid "The following recipient(s) could not be reached"
 msgstr "Sljedeći primatelji nisu bili dostupni"
+
+msgid "l, F j, Y g:i A"
+msgstr "l, j. F Y G:i"
+
+msgid "Your meeting has been forwarded"
+msgstr "Vaš je sastanak proslijeđen."
+
+msgid "has forwarded your meeting request to others."
+msgstr "Proslijedio je vaš zahtjev za sastanak drugima."
+
+msgid "Meeting Time"
+msgstr "Vrijeme sastanka"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "Nemate dovoljno privilegija da vidite sadržaj ove mape."

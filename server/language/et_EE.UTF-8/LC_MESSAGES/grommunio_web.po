@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Estonian (Estonia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 13:52+0200\n"
+"POT-Creation-Date: 2026-04-07 15:11+0200\n"
 "PO-Revision-Date: 2025-05-21 10:01+0000\n"
 "Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/grommunio/grommunio-web/et/>\n"
@@ -757,6 +757,20 @@ msgstr "Saaja"
 msgid "No date"
 msgstr "Kuupäev puudub"
 
+msgid "Forward Meeting Request"
+msgstr "Edasta koosoleku kutse"
+
+msgctxt "calendar.actions"
+msgid "Meeting request forwarded"
+msgstr "Koosoleku kutse edastatud"
+
+msgid ""
+"The meeting organizer will be notified that you forwarded this meeting "
+"request."
+msgstr ""
+"Koosoleku korraldajale saadetakse teade, et olete selle koosolekukutse edasi"
+" saatnud."
+
 msgid "Error"
 msgstr "Viga"
 
@@ -865,19 +879,16 @@ msgstr "Toimub iga {0} kehtiv {1} kuni {2}."
 msgid "Occurs every {0} {1} effective {2} until {3}."
 msgstr "Toimub iga {0} {1} kehtiv {2} kuni {3}."
 
-msgid "When"
-msgstr "Millal"
+msgid "New Meeting Time Proposed"
+msgstr "Kavandatud uus kohtumise aeg"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
 #. meaning of these formatting instructions
 msgid "l jS F Y {0}"
 msgstr "l jS F Y {0}"
 
-msgid "Where"
-msgstr "Kus"
-
-msgid "New Meeting Time Proposed"
-msgstr "Kavandatud uus kohtumise aeg"
+msgid "Fwd"
+msgstr "Edasta"
 
 msgid "and "
 msgstr "ja "
@@ -905,6 +916,9 @@ msgstr "Sorteerimine: Lõppkuupäeva järgi: Lõppkuupäev"
 
 msgid "Organizer"
 msgstr "Korraldaja"
+
+msgid "Where"
+msgstr "Kus"
 
 msgid "Required Attendee"
 msgstr "Nõutav osaleja"
@@ -1197,6 +1211,15 @@ msgstr "Kustuta"
 msgid "Add attachment"
 msgstr "Lisa lisa"
 
+msgid "Reply to the meeting organizer"
+msgstr "Vasta koosoleku korraldajale"
+
+msgid "Reply to all attendees"
+msgstr "Vasta kõigile osalejatele"
+
+msgid "Forward meeting request to additional recipients"
+msgstr "Edasta koosolekukutse teistele adressaatidele"
+
 msgid "Check names"
 msgstr "Kontrollida nimesid"
 
@@ -1235,6 +1258,15 @@ msgstr "Isiklik"
 
 msgid "Mark this appointment as private"
 msgstr "Märgi see kohtumine eraviisiliseks"
+
+msgctxt "calendar.toolbar"
+msgid "Use Reply All to reply to all attendees of your meeting."
+msgstr ""
+"Kasuta funktsiooni „Vasta kõigile”, et vastata kõigile koosoleku "
+"osalejatele."
+
+msgid "Re"
+msgstr "Re"
 
 msgid "Message Options"
 msgstr "Sõnumi valikud"
@@ -1516,6 +1548,12 @@ msgstr "Kohtumist ei leitud"
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr ""
 "See kohtumine on ümber paigutatud või kustutatud, kas soovite jätkata?"
+
+msgctxt "calendar.contextmenu"
+msgid "Use Reply All to reply to all attendees of your meeting."
+msgstr ""
+"Kasuta funktsiooni „Vasta kõigile”, et vastata kõigile koosoleku "
+"osalejatele."
 
 msgid "Options"
 msgstr "Valikud"
@@ -2394,6 +2432,9 @@ msgstr "sel nädalal"
 msgid "next week"
 msgstr "järgmisel nädalal"
 
+msgid "Dropped file type is not supported"
+msgstr "Sellist failitüüpi ei toetata"
+
 msgid "Edit recipient"
 msgstr "Redigeeri vastuvõtja"
 
@@ -2499,6 +2540,9 @@ msgstr ""
 
 msgid "Add/Edit Cc recipient"
 msgstr "Lisa/muuda koopia saaja"
+
+msgid "Resolving recipient"
+msgstr "Saaja tuvastamine"
 
 msgid "Disable for new mail"
 msgstr "Uute kirjade puhul keelata"
@@ -4759,12 +4803,6 @@ msgstr "Trüki valitud e-kiri"
 
 msgid "Filter"
 msgstr "Filter"
-
-msgid "Fwd"
-msgstr "Edasta"
-
-msgid "Re"
-msgstr "Re"
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -8072,6 +8110,9 @@ msgstr "Ei saanud kopeerida sõnumit"
 msgid "Could not move message"
 msgstr "Teade ei saanud liikuda"
 
+msgid "Could not forward meeting request"
+msgstr "Koosolekukutset ei õnnestunud edastada"
+
 msgid "You have insufficient privileges to save items in this folder"
 msgstr "Sul ei ole piisavalt õigusi, et salvestada objekte sellesse kausta"
 
@@ -8142,6 +8183,18 @@ msgstr "Sinu sõnum ei jõudnud mõne või kõigi soovitud adressaatideni"
 
 msgid "The following recipient(s) could not be reached"
 msgstr "Järgmis(t)e vastuvõtja(te)ga ei olnud võimalik ühendust võtta"
+
+msgid "l, F j, Y g:i A"
+msgstr "l, j. F Y G:i"
+
+msgid "Your meeting has been forwarded"
+msgstr "Teie koosolek on edasi lükatud"
+
+msgid "has forwarded your meeting request to others."
+msgstr "on edastanud teie koosolekukutse teistele."
+
+msgid "Meeting Time"
+msgstr "Koosoleku aeg"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "Sul ei ole selle kausta sisu nägemiseks piisavalt õigusi."

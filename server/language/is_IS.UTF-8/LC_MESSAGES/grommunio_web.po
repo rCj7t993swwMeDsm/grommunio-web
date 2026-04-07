@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Icelandic (Iceland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 13:52+0200\n"
+"POT-Creation-Date: 2026-04-07 15:11+0200\n"
 "PO-Revision-Date: 2019-12-01 02:07+0000\n"
 "Last-Translator: import\n"
 "Language: is_IS\n"
@@ -754,6 +754,20 @@ msgstr "Til"
 msgid "No date"
 msgstr "Engin dagsetning"
 
+msgid "Forward Meeting Request"
+msgstr "Framhaldsfundur – beiðni"
+
+msgctxt "calendar.actions"
+msgid "Meeting request forwarded"
+msgstr "Fundarbeiðni hefur verið send áfram"
+
+msgid ""
+"The meeting organizer will be notified that you forwarded this meeting "
+"request."
+msgstr ""
+"Fundar skipuleggjandinn verður látinn vita að þú hafir sent áfram þessa "
+"fundarbeiðni."
+
 msgid "Error"
 msgstr "Villa"
 
@@ -862,19 +876,16 @@ msgstr "Tíðni: 1 {0} með upphaf {1} þar til {2}."
 msgid "Occurs every {0} {1} effective {2} until {3}."
 msgstr "Tíðni: {0} {1} með upphaf {2} þar til {3}."
 
-msgid "When"
-msgstr "Hvenær"
+msgid "New Meeting Time Proposed"
+msgstr "Nýr fundartími lagður til"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
 #. meaning of these formatting instructions
 msgid "l jS F Y {0}"
 msgstr "l jS F Y{0}"
 
-msgid "Where"
-msgstr "Hvar"
-
-msgid "New Meeting Time Proposed"
-msgstr "Nýr fundartími lagður til"
+msgid "Fwd"
+msgstr "FS"
 
 msgid "and "
 msgstr "og "
@@ -902,6 +913,9 @@ msgstr "Raða eftir: Lokadagsetning"
 
 msgid "Organizer"
 msgstr "Skipuleggjandi"
+
+msgid "Where"
+msgstr "Hvar"
 
 msgid "Required Attendee"
 msgstr "Nauðsynlegur þátttakandi"
@@ -1200,6 +1214,15 @@ msgstr "Eyða"
 msgid "Add attachment"
 msgstr "Bæta við viðhengi"
 
+msgid "Reply to the meeting organizer"
+msgstr "Svaraðu skipuleggjanda fundarins"
+
+msgid "Reply to all attendees"
+msgstr "Svara öllum þátttakendum"
+
+msgid "Forward meeting request to additional recipients"
+msgstr "Framhafa beiðni um fund til viðbótarþegenda"
+
 msgid "Check names"
 msgstr "Athuga nöfn"
 
@@ -1238,6 +1261,13 @@ msgstr "Óopinbert"
 
 msgid "Mark this appointment as private"
 msgstr "Merkja þessa tímabókun sem óopinbera"
+
+msgctxt "calendar.toolbar"
+msgid "Use Reply All to reply to all attendees of your meeting."
+msgstr "Notaðu Svara öllum til að svara öllum þátttakendum í fundinum þínum."
+
+msgid "Re"
+msgstr "SV"
 
 msgid "Message Options"
 msgstr "Valmöguleikar skilaboða"
@@ -1517,6 +1547,10 @@ msgstr "Tímabókun fannst ekki"
 
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Þessi tímabókun hefur verið færð eða henni eytt, viltu halda áfram?"
+
+msgctxt "calendar.contextmenu"
+msgid "Use Reply All to reply to all attendees of your meeting."
+msgstr "Notaðu Svara öllum til að svara öllum þátttakendum í fundinum þínum."
 
 msgid "Options"
 msgstr "Valmöguleikar"
@@ -2393,6 +2427,9 @@ msgstr "í þessari viku"
 msgid "next week"
 msgstr "í næstu viku"
 
+msgid "Dropped file type is not supported"
+msgstr "Stuðningur við fellda skráargerð er ekki í boði."
+
 msgid "Edit recipient"
 msgstr "Breyta viðtakanda"
 
@@ -2498,6 +2535,9 @@ msgstr ""
 
 msgid "Add/Edit Cc recipient"
 msgstr "Bæta við/breyta viðtakanda afrits"
+
+msgid "Resolving recipient"
+msgstr "Að stilla viðtakanda"
 
 msgid "Disable for new mail"
 msgstr "Slökkva á nýjum pósti"
@@ -4760,12 +4800,6 @@ msgstr "Prenta valinn tölvupóst"
 
 msgid "Filter"
 msgstr "Sía"
-
-msgid "Fwd"
-msgstr "FS"
-
-msgid "Re"
-msgstr "SV"
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -8088,6 +8122,9 @@ msgstr "Gat ekki afritað skilaboð"
 msgid "Could not move message"
 msgstr "Gat ekki fært skilaboð"
 
+msgid "Could not forward meeting request"
+msgstr "Ekki var hægt að senda áfram fundarbeiðni"
+
 msgid "You have insufficient privileges to save items in this folder"
 msgstr "Þú ert ekki með réttindi til að vista í þessa möppu"
 
@@ -8156,6 +8193,18 @@ msgstr "Skilaboðin náðu ekki til einhverra eða allra viðtakenda"
 
 msgid "The following recipient(s) could not be reached"
 msgstr "Ekki náðist í eftirfarandi viðtakanda/viðtakendur"
+
+msgid "l, F j, Y g:i A"
+msgstr "l, j. F Y G:i"
+
+msgid "Your meeting has been forwarded"
+msgstr "Fundurinn þinn hefur verið sendur áfram"
+
+msgid "has forwarded your meeting request to others."
+msgstr "Hefur sent fundarbeiðni þína áfram til annarra."
+
+msgid "Meeting Time"
+msgstr "Fundartími"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "Þú hefur ófullnægjandi réttindi til að sjá innihald þessarar möppu."

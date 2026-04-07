@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Arabic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 13:52+0200\n"
+"POT-Creation-Date: 2026-04-07 15:11+0200\n"
 "PO-Revision-Date: 2022-12-11 16:35+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Arabic (Saudi Arabia) <https://hosted.weblate.org/projects/grommunio/grommunio-web/ar_SA/>\n"
@@ -790,6 +790,18 @@ msgstr "ل"
 msgid "No date"
 msgstr "لا يوجد تاريخ"
 
+msgid "Forward Meeting Request"
+msgstr "إعادة توجيه طلب الاجتماع"
+
+msgctxt "calendar.actions"
+msgid "Meeting request forwarded"
+msgstr "تم إعادة توجيه طلب الاجتماع"
+
+msgid ""
+"The meeting organizer will be notified that you forwarded this meeting "
+"request."
+msgstr "سيتم إخطار منظم الاجتماع بأنك قمت بإعادة توجيه طلب الاجتماع هذا."
+
 msgid "Error"
 msgstr "خطأ"
 
@@ -914,19 +926,16 @@ msgstr "يحدث كل{0}فعال{1}حتى{2}."
 msgid "Occurs every {0} {1} effective {2} until {3}."
 msgstr "ويحدث كل{0}{1}الفعال{2}حتى{3}."
 
-msgid "When"
-msgstr "متى"
+msgid "New Meeting Time Proposed"
+msgstr "وقت الاجتماع الجديد المقترح"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
 #. meaning of these formatting instructions
 msgid "l jS F Y {0}"
 msgstr "ل شبيبة F Y{0}"
 
-msgid "Where"
-msgstr "أين"
-
-msgid "New Meeting Time Proposed"
-msgstr "وقت الاجتماع الجديد المقترح"
+msgid "Fwd"
+msgstr "إعادة توجيه"
 
 msgid "and "
 msgstr "و"
@@ -954,6 +963,9 @@ msgstr "الترتيب حسب: تاريخ الانتهاء"
 
 msgid "Organizer"
 msgstr "منظم"
+
+msgid "Where"
+msgstr "أين"
 
 msgid "Required Attendee"
 msgstr "الحضور المطلوب"
@@ -1246,6 +1258,15 @@ msgstr "يمسح"
 msgid "Add attachment"
 msgstr "إضافة مرفق"
 
+msgid "Reply to the meeting organizer"
+msgstr "الرد على منظم الاجتماع"
+
+msgid "Reply to all attendees"
+msgstr "الرد على جميع الحاضرين"
+
+msgid "Forward meeting request to additional recipients"
+msgstr "إعادة توجيه طلب الاجتماع إلى مستلمين آخرين"
+
 msgid "Check names"
 msgstr "التحقق من الأسماء"
 
@@ -1284,6 +1305,13 @@ msgstr "خاص"
 
 msgid "Mark this appointment as private"
 msgstr "ضع علامة على هذا الموعد على أنه خاص"
+
+msgctxt "calendar.toolbar"
+msgid "Use Reply All to reply to all attendees of your meeting."
+msgstr "استخدم خيار \"الرد على الجميع\" للرد على جميع المشاركين في اجتماعك."
+
+msgid "Re"
+msgstr "رد"
 
 msgid "Message Options"
 msgstr "خيارات الرسالة"
@@ -1566,6 +1594,10 @@ msgstr "لم يتم العثور على الموعد"
 
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "تم نقل هذا الموعد أو حذفه، هل تريد المتابعة؟"
+
+msgctxt "calendar.contextmenu"
+msgid "Use Reply All to reply to all attendees of your meeting."
+msgstr "استخدم خيار \"الرد على الجميع\" للرد على جميع المشاركين في اجتماعك."
 
 msgid "Options"
 msgstr "الخيارات"
@@ -2407,6 +2439,9 @@ msgstr ".هذا الاسبوع"
 msgid "next week"
 msgstr "الأسبوع المقبل"
 
+msgid "Dropped file type is not supported"
+msgstr "نوع الملف الذي تم إسقاطه غير مدعوم"
+
 msgid "Edit recipient"
 msgstr "تحرير المستلم"
 
@@ -2514,6 +2549,9 @@ msgstr ""
 
 msgid "Add/Edit Cc recipient"
 msgstr "إضافة/تحرير مستلم نسخة"
+
+msgid "Resolving recipient"
+msgstr "تحديد المستلم"
 
 msgid "Disable for new mail"
 msgstr "تعطيل للبريد الجديد"
@@ -4781,12 +4819,6 @@ msgstr "طباعة البريد الإلكتروني المحدد"
 
 msgid "Filter"
 msgstr "فلتر"
-
-msgid "Fwd"
-msgstr "إعادة توجيه"
-
-msgid "Re"
-msgstr "رد"
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -8061,6 +8093,9 @@ msgstr "لا يمكن نسخ الرسالة"
 msgid "Could not move message"
 msgstr "لا يمكن نقل الرسالة"
 
+msgid "Could not forward meeting request"
+msgstr "تعذر إعادة توجيه طلب الاجتماع"
+
 msgid "You have insufficient privileges to save items in this folder"
 msgstr "ليس لديك امتيازات كافية لحفظ العناصر في هذا المجلد"
 
@@ -8131,6 +8166,18 @@ msgstr "لم تصل رسالتك إلى بعض أو كل المستلمين ال
 
 msgid "The following recipient(s) could not be reached"
 msgstr "تعذر الوصول إلى المستلم (المستلمين) التاليين"
+
+msgid "l, F j, Y g:i A"
+msgstr "l, j F, Y g:i A"
+
+msgid "Your meeting has been forwarded"
+msgstr "تم إعادة توجيه اجتماعك"
+
+msgid "has forwarded your meeting request to others."
+msgstr "قام بإعادة توجيه طلب الاجتماع الخاص بك إلى الآخرين."
+
+msgid "Meeting Time"
+msgstr "موعد الاجتماع"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "ليس لديك الامتيازات الكافية لرؤية محتويات هذا المجلد."

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Japanese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 13:52+0200\n"
+"POT-Creation-Date: 2026-04-07 15:11+0200\n"
 "PO-Revision-Date: 2022-12-12 13:00+0200\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/grommunio/grommunio-web/ja/>\n"
@@ -751,6 +751,18 @@ msgstr "宛先"
 msgid "No date"
 msgstr "日付なし"
 
+msgid "Forward Meeting Request"
+msgstr "会議の依頼を転送する"
+
+msgctxt "calendar.actions"
+msgid "Meeting request forwarded"
+msgstr "会議の依頼を転送しました"
+
+msgid ""
+"The meeting organizer will be notified that you forwarded this meeting "
+"request."
+msgstr "この会議の主催者には、あなたがこの会議の招待を転送したことが通知されます。"
+
 msgid "Error"
 msgstr "エラー"
 
@@ -851,19 +863,16 @@ msgstr "毎{0}実施　有効{1}"
 msgid "Occurs every {0} {1} effective {2} until {3}."
 msgstr "毎{0}{1}実施　有効{2}"
 
-msgid "When"
-msgstr "日時"
+msgid "New Meeting Time Proposed"
+msgstr "新たに会議の時間が設定されました"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
 #. meaning of these formatting instructions
 msgid "l jS F Y {0}"
 msgstr "l jS F Y{0}"
 
-msgid "Where"
-msgstr "場所"
-
-msgid "New Meeting Time Proposed"
-msgstr "新たに会議の時間が設定されました"
+msgid "Fwd"
+msgstr "転送"
 
 msgid "and "
 msgstr "かつ "
@@ -891,6 +900,9 @@ msgstr "並び替え終了日"
 
 msgid "Organizer"
 msgstr "主催者"
+
+msgid "Where"
+msgstr "場所"
 
 msgid "Required Attendee"
 msgstr "必須出席者"
@@ -1177,6 +1189,15 @@ msgstr "削除"
 msgid "Add attachment"
 msgstr "添付ファイルを追加"
 
+msgid "Reply to the meeting organizer"
+msgstr "会議の主催者へ返信する"
+
+msgid "Reply to all attendees"
+msgstr "すべての参加者に返信"
+
+msgid "Forward meeting request to additional recipients"
+msgstr "会議の招待を他の参加者に転送する"
+
 msgid "Check names"
 msgstr "名前の確認"
 
@@ -1215,6 +1236,13 @@ msgstr "プライベート"
 
 msgid "Mark this appointment as private"
 msgstr "この予約をプライベートにする"
+
+msgctxt "calendar.toolbar"
+msgid "Use Reply All to reply to all attendees of your meeting."
+msgstr "「全員に返信」を使用すると、会議の参加者全員に返信できます。"
+
+msgid "Re"
+msgstr "返信"
 
 msgid "Message Options"
 msgstr "メッセージのオプション"
@@ -1486,6 +1514,10 @@ msgstr "予約が見つかりません"
 
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "この予定は変更になったか削除されました。続行しますか？"
+
+msgctxt "calendar.contextmenu"
+msgid "Use Reply All to reply to all attendees of your meeting."
+msgstr "「全員に返信」を使用すると、会議の参加者全員に返信できます。"
 
 # オプション
 msgid "Options"
@@ -2318,6 +2350,9 @@ msgstr "今週"
 msgid "next week"
 msgstr "来週"
 
+msgid "Dropped file type is not supported"
+msgstr "指定されたファイル形式はサポートされていません"
+
 msgid "Edit recipient"
 msgstr "受信者を編集します"
 
@@ -2422,6 +2457,9 @@ msgstr "選択した項目を削除しても、削除済みアイテムフォル
 
 msgid "Add/Edit Cc recipient"
 msgstr "Cc受信者の追加/編集"
+
+msgid "Resolving recipient"
+msgstr "受信者の解決"
 
 msgid "Disable for new mail"
 msgstr "新着メールを無効にする"
@@ -4654,12 +4692,6 @@ msgstr "選択したメールを印刷する"
 
 msgid "Filter"
 msgstr "フィルター"
-
-msgid "Fwd"
-msgstr "転送"
-
-msgid "Re"
-msgstr "返信"
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -7865,6 +7897,9 @@ msgstr "メッセージをコピーできません"
 msgid "Could not move message"
 msgstr "メッセージを移動することができません"
 
+msgid "Could not forward meeting request"
+msgstr "会議の招待を転送できませんでした"
+
 msgid "You have insufficient privileges to save items in this folder"
 msgstr "フォルダのアイテムを保存するための十分な権限がありません"
 
@@ -7929,6 +7964,18 @@ msgstr "あなたのメッセージは一部もしくは全ての受信者に届
 
 msgid "The following recipient(s) could not be reached"
 msgstr "次の受信者に送信することができませんでした"
+
+msgid "l, F j, Y g:i A"
+msgstr "Y年n月j日 (l) G:i"
+
+msgid "Your meeting has been forwarded"
+msgstr "会議の案内が転送されました"
+
+msgid "has forwarded your meeting request to others."
+msgstr "あなたの会議の招待を他のメンバーに転送しました。"
+
+msgid "Meeting Time"
+msgstr "会議の時間"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "このフォルダの内容を見るには十分な権限がありません。"

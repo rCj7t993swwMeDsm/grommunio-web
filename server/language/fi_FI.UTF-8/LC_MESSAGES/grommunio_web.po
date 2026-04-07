@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Finnish (Finland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 13:52+0200\n"
+"POT-Creation-Date: 2026-04-07 15:11+0200\n"
 "PO-Revision-Date: 2022-07-26 15:25+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -760,6 +760,20 @@ msgstr "Vastaanottaja"
 msgid "No date"
 msgstr "Ei päivämäärää"
 
+msgid "Forward Meeting Request"
+msgstr "Välitä kokouspyyntö"
+
+msgctxt "calendar.actions"
+msgid "Meeting request forwarded"
+msgstr "Kokouspyyntö on välitetty"
+
+msgid ""
+"The meeting organizer will be notified that you forwarded this meeting "
+"request."
+msgstr ""
+"Kokouksen järjestäjälle ilmoitetaan, että olet välittänyt tämän kokouskutsun"
+" eteenpäin."
+
 msgid "Error"
 msgstr "Virhe"
 
@@ -868,19 +882,16 @@ msgstr "Tapahtuu joka {0} voimassa {1} {2} asti."
 msgid "Occurs every {0} {1} effective {2} until {3}."
 msgstr "Tapahtuu joka {0} {1} voimassa {2} {3} asti."
 
-msgid "When"
-msgstr "Milloin"
+msgid "New Meeting Time Proposed"
+msgstr "Ehdotettu uusi kokousaika"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
 #. meaning of these formatting instructions
 msgid "l jS F Y {0}"
 msgstr "l jS F Y {0}"
 
-msgid "Where"
-msgstr "Missä"
-
-msgid "New Meeting Time Proposed"
-msgstr "Ehdotettu uusi kokousaika"
+msgid "Fwd"
+msgstr "VL"
 
 msgid "and "
 msgstr "ja "
@@ -908,6 +919,9 @@ msgstr "Lajittelu: Loppupäivä"
 
 msgid "Organizer"
 msgstr "Järjestäjä"
+
+msgid "Where"
+msgstr "Missä"
 
 msgid "Required Attendee"
 msgstr "Pakollinen osallistuja"
@@ -1204,6 +1218,15 @@ msgstr "Poista"
 msgid "Add attachment"
 msgstr "Lisää liitetiedosto"
 
+msgid "Reply to the meeting organizer"
+msgstr "Vastaa kokouksen järjestäjälle"
+
+msgid "Reply to all attendees"
+msgstr "Vastaa kaikille osallistujille"
+
+msgid "Forward meeting request to additional recipients"
+msgstr "Lähetä kokouspyyntö eteenpäin muille vastaanottajille"
+
 msgid "Check names"
 msgstr "Tarkista nimet"
 
@@ -1242,6 +1265,15 @@ msgstr "Yksityinen"
 
 msgid "Mark this appointment as private"
 msgstr "Merkitse tämä tapaaminen yksityiseksi"
+
+msgctxt "calendar.toolbar"
+msgid "Use Reply All to reply to all attendees of your meeting."
+msgstr ""
+"Käytä Vastaa kaikille -toimintoa vastataksesi kaikille kokouksen "
+"osallistujille."
+
+msgid "Re"
+msgstr "VS"
 
 msgid "Message Options"
 msgstr "Viestivalinnat"
@@ -1523,6 +1555,12 @@ msgstr "Nimitystä ei löydy"
 
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Tapaaminen on siirretty tai poistettu, haluatko jatkaa?"
+
+msgctxt "calendar.contextmenu"
+msgid "Use Reply All to reply to all attendees of your meeting."
+msgstr ""
+"Käytä Vastaa kaikille -toimintoa vastataksesi kaikille kokouksen "
+"osallistujille."
 
 msgid "Options"
 msgstr "Valinnat"
@@ -2419,6 +2457,9 @@ msgstr "tällä viikolla"
 msgid "next week"
 msgstr "ensi viikolla"
 
+msgid "Dropped file type is not supported"
+msgstr "Tätä tiedostotyyppiä ei tueta"
+
 msgid "Edit recipient"
 msgstr "Muokkaa vastaanottajia"
 
@@ -2525,6 +2566,9 @@ msgstr ""
 
 msgid "Add/Edit Cc recipient"
 msgstr "Lisää/muokkaa Cc-vastaanottajaa"
+
+msgid "Resolving recipient"
+msgstr "Vastaanottajan selvittäminen"
 
 msgid "Disable for new mail"
 msgstr "Poista käytöstä uuden postin osalta"
@@ -4802,12 +4846,6 @@ msgstr "Tulosta valittu sähköposti"
 
 msgid "Filter"
 msgstr "Suodatin"
-
-msgid "Fwd"
-msgstr "VL"
-
-msgid "Re"
-msgstr "VS"
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -8183,6 +8221,9 @@ msgstr "Viestiä ei voitu kopioida"
 msgid "Could not move message"
 msgstr "Viestiä ei voitu siirtää"
 
+msgid "Could not forward meeting request"
+msgstr "Kokouspyyntöä ei voitu välittää"
+
 msgid "You have insufficient privileges to save items in this folder"
 msgstr "Sinulla ei ole tarpeeksi oikeuksia tallentaa kohteita kansioon"
 
@@ -8255,6 +8296,18 @@ msgstr ""
 
 msgid "The following recipient(s) could not be reached"
 msgstr "Seuraavia vastaanottajia ei tavoitettu"
+
+msgid "l, F j, Y g:i A"
+msgstr "l, j. F Y \\k\\l\\o G:i"
+
+msgid "Your meeting has been forwarded"
+msgstr "Kokouksesi on siirretty"
+
+msgid "has forwarded your meeting request to others."
+msgstr "on välittänyt kokouspyyntösi muille."
+
+msgid "Meeting Time"
+msgstr "Kokousaika"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "Sinulla ei ole riittäviä oikeuksia nähdä tämän kansion sisältöä."

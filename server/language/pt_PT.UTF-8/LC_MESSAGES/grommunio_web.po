@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Portuguese (Portugal)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 13:52+0200\n"
+"POT-Creation-Date: 2026-04-07 15:11+0200\n"
 "PO-Revision-Date: 2022-07-26 18:47+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -757,6 +757,20 @@ msgstr "Para"
 msgid "No date"
 msgstr "Sem data final"
 
+msgid "Forward Meeting Request"
+msgstr "Reencaminhar pedido de reunião"
+
+msgctxt "calendar.actions"
+msgid "Meeting request forwarded"
+msgstr "Pedido de reunião reencaminhado"
+
+msgid ""
+"The meeting organizer will be notified that you forwarded this meeting "
+"request."
+msgstr ""
+"O organizador da reunião será notificado de que reenviou este convite para a"
+" reunião."
+
 msgid "Error"
 msgstr "Erro"
 
@@ -867,19 +881,16 @@ msgstr "Acontece a cada {0} a partir de {1} até {2}."
 msgid "Occurs every {0} {1} effective {2} until {3}."
 msgstr "Acontece a cada {0} {1} a partir de {2} até {3}."
 
-msgid "When"
-msgstr "Quando"
+msgid "New Meeting Time Proposed"
+msgstr "Nova hora de Reunião proposta"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
 #. meaning of these formatting instructions
 msgid "l jS F Y {0}"
 msgstr "l jS F Y {0}"
 
-msgid "Where"
-msgstr "Onde"
-
-msgid "New Meeting Time Proposed"
-msgstr "Nova hora de Reunião proposta"
+msgid "Fwd"
+msgstr "ENC"
 
 msgid "and "
 msgstr "e "
@@ -907,6 +918,9 @@ msgstr "Ordenar por: Data de fim"
 
 msgid "Organizer"
 msgstr "Organizador"
+
+msgid "Where"
+msgstr "Onde"
 
 msgid "Required Attendee"
 msgstr "Participante obrigatório"
@@ -1201,6 +1215,15 @@ msgstr "Apagar"
 msgid "Add attachment"
 msgstr "Adicionar anexo"
 
+msgid "Reply to the meeting organizer"
+msgstr "Responder ao organizador da reunião"
+
+msgid "Reply to all attendees"
+msgstr "Responder a todos os participantes"
+
+msgid "Forward meeting request to additional recipients"
+msgstr "Reencaminhar o pedido de reunião para destinatários adicionais"
+
 msgid "Check names"
 msgstr "Conferir nomes"
 
@@ -1239,6 +1262,15 @@ msgstr "Privada"
 
 msgid "Mark this appointment as private"
 msgstr "Marcar esta reunião como privada"
+
+msgctxt "calendar.toolbar"
+msgid "Use Reply All to reply to all attendees of your meeting."
+msgstr ""
+"Utilize a opção «Responder a todos» para responder a todos os participantes "
+"da sua reunião."
+
+msgid "Re"
+msgstr "RES"
 
 msgid "Message Options"
 msgstr "Opções da mensagem"
@@ -1517,6 +1549,12 @@ msgstr "Compromisso não encontrado"
 
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Este compromisso foi movido ou eliminado. Quer continuar?"
+
+msgctxt "calendar.contextmenu"
+msgid "Use Reply All to reply to all attendees of your meeting."
+msgstr ""
+"Utilize a opção «Responder a todos» para responder a todos os participantes "
+"da sua reunião."
 
 msgid "Options"
 msgstr "Opções"
@@ -2395,6 +2433,9 @@ msgstr "esta semana"
 msgid "next week"
 msgstr "na próxima semana"
 
+msgid "Dropped file type is not supported"
+msgstr "O tipo de ficheiro arrastado não é suportado"
+
 msgid "Edit recipient"
 msgstr "Editar destinatário"
 
@@ -2501,6 +2542,9 @@ msgstr ""
 
 msgid "Add/Edit Cc recipient"
 msgstr "Adicionar/editar destinatário Cc"
+
+msgid "Resolving recipient"
+msgstr "Resolução do destinatário"
 
 msgid "Disable for new mail"
 msgstr "Desativar para correio novo"
@@ -4768,12 +4812,6 @@ msgstr "Imprimir item selecionado"
 
 msgid "Filter"
 msgstr "Filtrar"
-
-msgid "Fwd"
-msgstr "ENC"
-
-msgid "Re"
-msgstr "RES"
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -8144,6 +8182,9 @@ msgstr "Não foi possível copiar a mensagem"
 msgid "Could not move message"
 msgstr "Não foi possível mover a mensagem"
 
+msgid "Could not forward meeting request"
+msgstr "Não foi possível reencaminhar o pedido de reunião"
+
 msgid "You have insufficient privileges to save items in this folder"
 msgstr "Não tem permissões suficientes para guardar itens nesta pasta"
 
@@ -8214,6 +8255,18 @@ msgstr ""
 
 msgid "The following recipient(s) could not be reached"
 msgstr "Não foi possível entregar aos seguintes destinatários"
+
+msgid "l, F j, Y g:i A"
+msgstr "l, j \\d\\e F \\d\\e Y G:i"
+
+msgid "Your meeting has been forwarded"
+msgstr "A sua reunião foi reencaminhada"
+
+msgid "has forwarded your meeting request to others."
+msgstr "encaminhou o seu pedido de reunião para outras pessoas."
+
+msgid "Meeting Time"
+msgstr "Hora da reunião"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "Não tem privilégios suficientes para ver o conteúdo desta pasta."

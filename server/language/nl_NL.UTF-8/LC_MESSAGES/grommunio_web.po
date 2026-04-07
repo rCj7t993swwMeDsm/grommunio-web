@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Dutch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 13:52+0200\n"
+"POT-Creation-Date: 2026-04-07 15:11+0200\n"
 "PO-Revision-Date: 2022-12-11 14:12+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/grommunio/grommunio-web/nl/>\n"
@@ -763,6 +763,20 @@ msgstr "Aan"
 msgid "No date"
 msgstr "Geen datum"
 
+msgid "Forward Meeting Request"
+msgstr "Verzoek om vergadering doorsturen"
+
+msgctxt "calendar.actions"
+msgid "Meeting request forwarded"
+msgstr "Vergaderverzoek doorgestuurd"
+
+msgid ""
+"The meeting organizer will be notified that you forwarded this meeting "
+"request."
+msgstr ""
+"De organisator van de vergadering krijgt een bericht dat je deze uitnodiging"
+" hebt doorgestuurd."
+
 msgid "Error"
 msgstr "Fout"
 
@@ -874,19 +888,16 @@ msgstr "Elke {0} met ingang van {1} tot en met {2}."
 msgid "Occurs every {0} {1} effective {2} until {3}."
 msgstr "Elke {0} {1} met ingang van {2} tot en met {3}."
 
-msgid "When"
-msgstr "Op"
+msgid "New Meeting Time Proposed"
+msgstr "Nieuwe Tijd Voorgesteld"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
 #. meaning of these formatting instructions
 msgid "l jS F Y {0}"
 msgstr "l j F Y {0}"
 
-msgid "Where"
-msgstr "Locatie"
-
-msgid "New Meeting Time Proposed"
-msgstr "Nieuwe Tijd Voorgesteld"
+msgid "Fwd"
+msgstr "Doorst"
 
 msgid "and "
 msgstr "en "
@@ -914,6 +925,9 @@ msgstr "Sorteren op: einddatum"
 
 msgid "Organizer"
 msgstr "Organisator"
+
+msgid "Where"
+msgstr "Locatie"
 
 msgid "Required Attendee"
 msgstr "Vereiste Deelnemer"
@@ -1209,6 +1223,15 @@ msgstr "Verwijderen"
 msgid "Add attachment"
 msgstr "Bijlage toevoegen"
 
+msgid "Reply to the meeting organizer"
+msgstr "Reageer op de organisator van de bijeenkomst"
+
+msgid "Reply to all attendees"
+msgstr "Reageer naar alle deelnemers"
+
+msgid "Forward meeting request to additional recipients"
+msgstr "Verzoek om vergadering doorsturen naar andere ontvangers"
+
 msgid "Check names"
 msgstr "Namen controleren"
 
@@ -1247,6 +1270,15 @@ msgstr "Privé"
 
 msgid "Mark this appointment as private"
 msgstr "Markeer deze afspraak als privé"
+
+msgctxt "calendar.toolbar"
+msgid "Use Reply All to reply to all attendees of your meeting."
+msgstr ""
+"Gebruik 'Allen beantwoorden' om alle deelnemers aan je vergadering te "
+"beantwoorden."
+
+msgid "Re"
+msgstr "Antw"
 
 msgid "Message Options"
 msgstr "Berichtopties"
@@ -1527,6 +1559,12 @@ msgstr "Kalenderafspraak niet gevonden"
 
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Deze afspraak is verplaatst of verwijderd, wilt u doorgaan?"
+
+msgctxt "calendar.contextmenu"
+msgid "Use Reply All to reply to all attendees of your meeting."
+msgstr ""
+"Gebruik 'Allen beantwoorden' om alle deelnemers aan je vergadering te "
+"beantwoorden."
 
 msgid "Options"
 msgstr "Opties"
@@ -2408,6 +2446,9 @@ msgstr "deze week"
 msgid "next week"
 msgstr "volgende week"
 
+msgid "Dropped file type is not supported"
+msgstr "Het opgegeven bestandstype wordt niet ondersteund"
+
 msgid "Edit recipient"
 msgstr "Bewerk geadresseerde"
 
@@ -2515,6 +2556,9 @@ msgstr ""
 
 msgid "Add/Edit Cc recipient"
 msgstr "Toevoegen/Wijzigen Cc ontvanger"
+
+msgid "Resolving recipient"
+msgstr "Ontvanger vaststellen"
 
 msgid "Disable for new mail"
 msgstr "Uitschakelen voor nieuwe mail"
@@ -4779,12 +4823,6 @@ msgstr "Print de geselecteerde email"
 
 msgid "Filter"
 msgstr "Filter"
-
-msgid "Fwd"
-msgstr "Doorst"
-
-msgid "Re"
-msgstr "Antw"
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -8131,6 +8169,9 @@ msgstr "Kon bericht niet kopiëren"
 msgid "Could not move message"
 msgstr "Kon bericht niet verplaatsen"
 
+msgid "Could not forward meeting request"
+msgstr "Het vergaderverzoek kon niet worden doorgestuurd"
+
 msgid "You have insufficient privileges to save items in this folder"
 msgstr "U heeft niet voldoende permissies om items in deze map op te slaan"
 
@@ -8204,6 +8245,18 @@ msgstr "Uw bericht is niet ontvangen door een of meerdere geadresseerden"
 
 msgid "The following recipient(s) could not be reached"
 msgstr "De volgende geadresseerde(n) kon(den) niet worden bereikt"
+
+msgid "l, F j, Y g:i A"
+msgstr "l j F Y G:i"
+
+msgid "Your meeting has been forwarded"
+msgstr "Uw vergadering is doorgestuurd"
+
+msgid "has forwarded your meeting request to others."
+msgstr "heeft uw vergaderverzoek doorgestuurd naar anderen."
+
+msgid "Meeting Time"
+msgstr "Tijdstip van de vergadering"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "U hebt onvoldoende rechten om de inhoud van deze map te zien."

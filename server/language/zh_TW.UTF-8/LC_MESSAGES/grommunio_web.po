@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 13:52+0200\n"
+"POT-Creation-Date: 2026-04-07 15:11+0200\n"
 "PO-Revision-Date: 2022-08-27 18:15+0000\n"
 "Last-Translator: Hugel <qihu@nfschina.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/grommunio/grommunio-web/zh_Hant/>\n"
@@ -745,6 +745,18 @@ msgstr "收件人"
 msgid "No date"
 msgstr "無日期"
 
+msgid "Forward Meeting Request"
+msgstr "轉發會議邀請"
+
+msgctxt "calendar.actions"
+msgid "Meeting request forwarded"
+msgstr "會議邀請已轉發"
+
+msgid ""
+"The meeting organizer will be notified that you forwarded this meeting "
+"request."
+msgstr "會議主辦人將收到通知，告知您已轉發此會議邀請。"
+
 msgid "Error"
 msgstr "錯誤"
 
@@ -849,19 +861,16 @@ msgstr "Occurs every %s effective %s until %s"
 msgid "Occurs every {0} {1} effective {2} until {3}."
 msgstr "Occurs every %s effective %s until %s"
 
-msgid "When"
-msgstr "當"
+msgid "New Meeting Time Proposed"
+msgstr "建議新的會議時間"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
 #. meaning of these formatting instructions
 msgid "l jS F Y {0}"
 msgstr "l jS F Y{0}"
 
-msgid "Where"
-msgstr "哪裡"
-
-msgid "New Meeting Time Proposed"
-msgstr "建議新的會議時間"
+msgid "Fwd"
+msgstr "轉寄"
 
 msgid "and "
 msgstr "和 "
@@ -889,6 +898,9 @@ msgstr "排序方式結束日期"
 
 msgid "Organizer"
 msgstr "組織者"
+
+msgid "Where"
+msgstr "哪裡"
 
 msgid "Required Attendee"
 msgstr "必要的與會者"
@@ -1176,6 +1188,15 @@ msgstr "刪除"
 msgid "Add attachment"
 msgstr "新增附件"
 
+msgid "Reply to the meeting organizer"
+msgstr "回覆會議主辦人"
+
+msgid "Reply to all attendees"
+msgstr "回覆所有與會者"
+
+msgid "Forward meeting request to additional recipients"
+msgstr "將會議邀請轉寄給其他收件人"
+
 msgid "Check names"
 msgstr "檢查名稱"
 
@@ -1214,6 +1235,13 @@ msgstr "私人的"
 
 msgid "Mark this appointment as private"
 msgstr "標示此約會為私人"
+
+msgctxt "calendar.toolbar"
+msgid "Use Reply All to reply to all attendees of your meeting."
+msgstr "使用「回覆所有人」功能，即可回覆會議的所有與會者。"
+
+msgid "Re"
+msgstr "回覆"
 
 msgid "Message Options"
 msgstr "郵件選項"
@@ -1488,6 +1516,10 @@ msgstr "未找到約會"
 
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "此約會已搬移或刪除，您要繼續嗎？"
+
+msgctxt "calendar.contextmenu"
+msgid "Use Reply All to reply to all attendees of your meeting."
+msgstr "使用「回覆所有人」功能，即可回覆會議的所有與會者。"
 
 msgid "Options"
 msgstr "選項"
@@ -2303,6 +2335,9 @@ msgstr "本週"
 msgid "next week"
 msgstr "下星期"
 
+msgid "Dropped file type is not supported"
+msgstr "所拖放的檔案類型不被支援"
+
 msgid "Edit recipient"
 msgstr "編輯收件者"
 
@@ -2406,6 +2441,9 @@ msgstr "刪除選取的項目，但不會將其移至「已刪除項目」資料
 
 msgid "Add/Edit Cc recipient"
 msgstr "新增/編輯抄送收件人"
+
+msgid "Resolving recipient"
+msgstr "解析收件人"
 
 msgid "Disable for new mail"
 msgstr "停用新郵件"
@@ -4622,12 +4660,6 @@ msgstr "列印選取的電子郵件"
 
 msgid "Filter"
 msgstr "过滤器"
-
-msgid "Fwd"
-msgstr "轉寄"
-
-msgid "Re"
-msgstr "回覆"
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -7795,6 +7827,9 @@ msgstr "無法複製郵件"
 msgid "Could not move message"
 msgstr "無法搬移郵件"
 
+msgid "Could not forward meeting request"
+msgstr "無法轉發會議邀請"
+
 msgid "You have insufficient privileges to save items in this folder"
 msgstr "您沒有足夠權限儲存此資料夾項目"
 
@@ -7862,6 +7897,18 @@ msgstr "Your message did not reach some or all of the intended recipients"
 
 msgid "The following recipient(s) could not be reached"
 msgstr "The following recipient(s) could not be reached"
+
+msgid "l, F j, Y g:i A"
+msgstr "Y年n月j日 l G:i"
+
+msgid "Your meeting has been forwarded"
+msgstr "您的會議已轉發"
+
+msgid "has forwarded your meeting request to others."
+msgstr "已將您的會議邀請轉發給其他人。"
+
+msgid "Meeting Time"
+msgstr "會議時間"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "您的權限不足以檢視此資料夾的內容。"

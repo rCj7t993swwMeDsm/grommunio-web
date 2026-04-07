@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Czech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 13:52+0200\n"
+"POT-Creation-Date: 2026-04-07 15:11+0200\n"
 "PO-Revision-Date: 2022-07-26 14:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -769,6 +769,20 @@ msgstr "Komu"
 msgid "No date"
 msgstr "Bez data"
 
+msgid "Forward Meeting Request"
+msgstr "Přeposlat žádost o schůzku"
+
+msgctxt "calendar.actions"
+msgid "Meeting request forwarded"
+msgstr "Žádost o schůzku byla přeposlána"
+
+msgid ""
+"The meeting organizer will be notified that you forwarded this meeting "
+"request."
+msgstr ""
+"Organizátor schůzky bude informován o tom, že jste tuto žádost o schůzku "
+"přeposlali."
+
 msgid "Error"
 msgstr "Chyba"
 
@@ -882,19 +896,16 @@ msgstr "Opakuje se vždy {0} počínaje {1} do {2}."
 msgid "Occurs every {0} {1} effective {2} until {3}."
 msgstr "Opakuje se vždy {0} {1} počínaje {2} do {3}."
 
-msgid "When"
-msgstr "Kdy"
+msgid "New Meeting Time Proposed"
+msgstr "Nově navrhovaný čas schůzky"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the
 #. meaning of these formatting instructions
 msgid "l jS F Y {0}"
 msgstr "l jS F Y {0}"
 
-msgid "Where"
-msgstr "Kde"
-
-msgid "New Meeting Time Proposed"
-msgstr "Nově navrhovaný čas schůzky"
+msgid "Fwd"
+msgstr "Fwd"
 
 msgid "and "
 msgstr "a "
@@ -922,6 +933,9 @@ msgstr "Seřadit podle: Datum ukončení"
 
 msgid "Organizer"
 msgstr "Organizátor"
+
+msgid "Where"
+msgstr "Kde"
 
 msgid "Required Attendee"
 msgstr "Povinná účast"
@@ -1217,6 +1231,15 @@ msgstr "Odstranit"
 msgid "Add attachment"
 msgstr "Přidat přílohu"
 
+msgid "Reply to the meeting organizer"
+msgstr "Odpovědět organizátorovi schůzky"
+
+msgid "Reply to all attendees"
+msgstr "Odpovědět všem účastníkům"
+
+msgid "Forward meeting request to additional recipients"
+msgstr "Přeposlat žádost o schůzku dalším příjemcům"
+
 msgid "Check names"
 msgstr "Ověřit jména"
 
@@ -1255,6 +1278,14 @@ msgstr "Soukromé"
 
 msgid "Mark this appointment as private"
 msgstr "Označit tuto schůzku jako soukromou"
+
+msgctxt "calendar.toolbar"
+msgid "Use Reply All to reply to all attendees of your meeting."
+msgstr ""
+"Pomocí funkce „Odpovědět všem“ můžete odpovědět všem účastníkům schůzky."
+
+msgid "Re"
+msgstr "Re"
 
 msgid "Message Options"
 msgstr "Možnosti zpráv"
@@ -1534,6 +1565,11 @@ msgstr "Schůzka nebyla nalezena"
 
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Tato schůzka byla přesunuta nebo smazána, chcete pokračovat?"
+
+msgctxt "calendar.contextmenu"
+msgid "Use Reply All to reply to all attendees of your meeting."
+msgstr ""
+"Pomocí funkce „Odpovědět všem“ můžete odpovědět všem účastníkům schůzky."
 
 msgid "Options"
 msgstr "Možnosti"
@@ -2419,6 +2455,9 @@ msgstr "tento týden"
 msgid "next week"
 msgstr "příští týden"
 
+msgid "Dropped file type is not supported"
+msgstr "Zadaný typ souboru není podporován"
+
 msgid "Edit recipient"
 msgstr "Upravit příjemce"
 
@@ -2525,6 +2564,9 @@ msgstr ""
 
 msgid "Add/Edit Cc recipient"
 msgstr "Přidat/upravit příjemce Cc"
+
+msgid "Resolving recipient"
+msgstr "Určení příjemce"
 
 msgid "Disable for new mail"
 msgstr "Zakázat pro novou poštu"
@@ -4801,12 +4843,6 @@ msgstr "Tisk vybraného e-mailu"
 
 msgid "Filter"
 msgstr "Filtr"
-
-msgid "Fwd"
-msgstr "Fwd"
-
-msgid "Re"
-msgstr "Re"
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -8157,6 +8193,9 @@ msgstr "Nelze kopírovat zprávu"
 msgid "Could not move message"
 msgstr "Nelze přesunout zprávu"
 
+msgid "Could not forward meeting request"
+msgstr "Žádost o schůzku se nepodařilo přeposlat"
+
 msgid "You have insufficient privileges to save items in this folder"
 msgstr "Nemáte oprávnění uložit položky v této složce"
 
@@ -8225,6 +8264,18 @@ msgstr "Vaše zpráva nebyla doručena některému anebo všem uvedeným příje
 
 msgid "The following recipient(s) could not be reached"
 msgstr "Nebyla doručena následujícímu příjemci/příjemcům"
+
+msgid "l, F j, Y g:i A"
+msgstr "l, j. F Y G:i"
+
+msgid "Your meeting has been forwarded"
+msgstr "Vaše schůzka byla přesunuta"
+
+msgid "has forwarded your meeting request to others."
+msgstr "předal vaši žádost o schůzku dalším osobám."
+
+msgid "Meeting Time"
+msgstr "Čas schůzky"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "K zobrazení obsahu této složky nemáte dostatečná oprávnění."
