@@ -126,6 +126,38 @@
 			headers.item(col).set({ 'aria-sort': dir === 'DESC' ? 'descending' : 'ascending' });
 		},
 
+		/**
+		 * Override handleHdMove to only show the resize cursor on the right
+		 * edge of column headers. The default Ext JS behavior shows the resize
+		 * cursor on both edges, and clicking the left edge resizes the previous
+		 * column which is unintuitive.
+		 * @private
+		 */
+		handleHdMove : function(e) {
+			var header = this.findHeaderCell(this.activeHdRef);
+
+			if (header && !this.headersDisabled) {
+				var handleWidth  = this.splitHandleWidth || 5,
+					activeRegion = this.activeHdRegion,
+					headerStyle  = header.style,
+					colModel     = this.cm,
+					cursor       = '',
+					pageX        = e.getPageX();
+
+				if (this.grid.enableColumnResize !== false) {
+					var activeHeaderIndex = this.activeHdIndex,
+						currentResizable  = colModel.isResizable(activeHeaderIndex),
+						inRightResizer    = activeRegion.right - pageX <= handleWidth;
+
+					if (inRightResizer && currentResizable) {
+						cursor = Ext.isAir ? 'move' : Ext.isWebKit ? 'w-resize' : 'col-resize';
+					}
+				}
+
+				headerStyle.cursor = cursor;
+			}
+		},
+
 	    /**
 	     * @private
 	     * Overriding this method so we can add a custom class to the header cells of the grid
@@ -174,5 +206,42 @@
 	            tstyle: String.format("width: {0};", this.getTotalWidth())
 	        });
 	    }
+	});
+
+	/**
+	 * Override SplitDragZone to only allow column resizing from the right
+	 * edge of each header cell. The default behavior allows resizing from
+	 * both edges, where the left edge resizes the previous column, which
+	 * users find unintuitive.
+	 */
+	Ext.override(Ext.grid.GridView.SplitDragZone, {
+		handleMouseDown : function(e) {
+			var t = this.view.findHeaderCell(e.getTarget());
+			if (t && this.allowHeaderDrag(e)) {
+				var xy = this.view.fly(t).getXY(),
+					x = xy[0],
+					exy = e.getXY(),
+					ex = exy[0],
+					w = t.offsetWidth,
+					adjust = false;
+
+				// Only respond to clicks on the right edge of the header
+				if ((x + w) - ex <= this.hw) {
+					adjust = 0;
+				}
+
+				if (adjust !== false) {
+					this.cm = this.grid.colModel;
+					var ci = this.view.getCellIndex(t);
+					this.cellIndex = ci + adjust;
+					this.split = t.dom;
+					if (this.cm.isResizable(this.cellIndex) && !this.cm.isFixed(this.cellIndex)) {
+						Ext.grid.GridView.SplitDragZone.superclass.handleMouseDown.apply(this, arguments);
+					}
+				} else if (this.view.columnDrag) {
+					this.view.columnDrag.callHandleMouseDown(e);
+				}
+			}
+		}
 	});
 })();
