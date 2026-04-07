@@ -553,7 +553,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				this.dateField.getValue().set(startDate, dueDate);
 			}
 
-			if (contentReset === true || record.isModified('taskmode')) {
+			if (contentReset === true || record.isModifiedSinceLastUpdate('taskmode')) {
 				switch (record.get('taskmode')) {
 					case Zarafa.core.mapi.TaskMode.REQUEST:
 						this.recipientPanel.setVisible(true);
