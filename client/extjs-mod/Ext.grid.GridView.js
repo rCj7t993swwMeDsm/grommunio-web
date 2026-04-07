@@ -137,7 +137,7 @@
 			var header = this.findHeaderCell(this.activeHdRef);
 
 			if (header && !this.headersDisabled) {
-				var handleWidth  = this.splitHandleWidth || 5,
+				var handleWidth  = this.splitHandleWidth || 8,
 					activeRegion = this.activeHdRegion,
 					headerStyle  = header.style,
 					colModel     = this.cm,
@@ -214,7 +214,13 @@
 	 * both edges, where the left edge resizes the previous column, which
 	 * users find unintuitive.
 	 */
+	var orig_SplitDragZone_constructor = Ext.grid.GridView.SplitDragZone.prototype.constructor;
 	Ext.override(Ext.grid.GridView.SplitDragZone, {
+		constructor : function(grid, hd) {
+			orig_SplitDragZone_constructor.apply(this, arguments);
+			this.hw = this.view.splitHandleWidth || 8;
+		},
+
 		handleMouseDown : function(e) {
 			var t = this.view.findHeaderCell(e.getTarget());
 			if (t && this.allowHeaderDrag(e)) {
