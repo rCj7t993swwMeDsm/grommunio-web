@@ -419,6 +419,27 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	},
 
 	/**
+	 * Replaces empty inline image data URIs with a valid transparent PNG so
+	 * TinyMCE does not fail while converting images to blob info.
+	 * @param {String} value The raw editor HTML.
+	 * @return {String} Normalized HTML.
+	 */
+	normalizeEditorContent: function(value)
+	{
+		if (value === null || value === undefined) {
+			return "";
+		}
+		if (!Ext.isString(value) || value.indexOf("data:image/") === -1) {
+			return value;
+		}
+
+		return value.replace(
+			/(<img\b[^>]*\ssrc\s*=\s*)(['"])data:image\/[^;]+;base64,\s*\2/ig,
+			"$1$2data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/a4kAAAAASUVORK5CYII=$2"
+		);
+	},
+
+	/**
 	 * Sets a data value into the field and runs the validation.
 	 * @param {String} v The value to set
 	 * @return {String} Value which was set
@@ -426,7 +447,7 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	setValue: function(v)
 	{
 		var me = this;
-		this.value = v;
+		this.value = me.normalizeEditorContent(v);
 		Ext.ux.form.TinyMCETextArea.superclass.setValue.call(this, v);
 
 		if (this.rendered && me.wysiwygIntialized) {
@@ -446,7 +467,7 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	 */
 	setContent: function(editor, value)
 	{
-		editor.setContent(value === null || value === undefined ? "" : value, {
+		editor.setContent(this.normalizeEditorContent(value), {
 			format: "raw"
 		});
 		editor.startContent = editor.getContent({
