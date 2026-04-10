@@ -1183,27 +1183,12 @@ body.dark-mode .k-taskgeneraltab .k-body-panel textarea {
 body.dark-mode .k-appointmentcreatetab .k-busystatus-panel,
 body.dark-mode .k-appointmentcreatetab .k-label-panel,
 body.dark-mode .k-appointmentcreatetab .k-status-panel,
-body.dark-mode .k-appointmentcreatetab .k-priority-complete-panel,
-body.dark-mode .k-taskgeneraltab .k-busystatus-panel,
-body.dark-mode .k-taskgeneraltab .k-label-panel,
-body.dark-mode .k-taskgeneraltab .k-status-panel,
-body.dark-mode .k-taskgeneraltab .k-priority-complete-panel {
+body.dark-mode .k-appointmentcreatetab .k-priority-complete-panel {
 	border-bottom-color: var(--dm-border) !important;
-}
-
-body.dark-mode .k-taskgeneraltab .k-datetime-panel table tr:nth-child(2) {
-	border-bottom-color: var(--dm-border) !important;
-}
-
-body.dark-mode .k-taskgeneraltab .k-busystatus-panel,
-body.dark-mode .k-taskgeneraltab .k-status-panel,
-body.dark-mode .k-taskgeneraltab .k-priority-complete-panel {
-	border-left-color: var(--dm-border) !important;
 }
 
 /* Left-border separators (filler panels) */
-body.dark-mode .k-appointmentcreatetab .filler,
-body.dark-mode .k-taskgeneraltab .filler {
+body.dark-mode .k-appointmentcreatetab .filler {
 	border-left-color: var(--dm-border) !important;
 }
 

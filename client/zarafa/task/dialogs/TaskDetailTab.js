@@ -25,6 +25,7 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 			cls: 'k-taskdetailtab',
 			title: _('Details'),
 			border: false,
+			labelWidth: 120,
 			labelAlign: 'left',
 			defaults: {
 				border: false,
@@ -129,7 +130,7 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 			},{//2 col
 				columnWidth: 0.65,
 				cls: 'k-col1',
-				labelWidth: 150,
+				labelWidth: 160,
 				defaults:{
 					anchor:'100%'
 				},

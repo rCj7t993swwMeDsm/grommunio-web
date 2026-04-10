@@ -2467,12 +2467,12 @@ span.preview-header-sender-image {
     line-height: 20px;
     padding-top: 2px;
     width: 72px !important; }
+  .k-taskgeneraltab .k-subject-panel label.x-form-item-label {
+    padding-left: 6px; }
 .k-taskgeneraltab .k-datetime-panel table {
-  width: 100%;
-  border-collapse: collapse;
   white-space: nowrap; }
   .k-taskgeneraltab .k-datetime-panel table tr:nth-child(2) {
-    border-bottom: 1px solid #e6e6e6; }
+    border-bottom: none; }
   .k-taskgeneraltab .k-datetime-panel .k-date-panel table {
     width: auto; }
 .k-appointmentcreatetab .k-date-panel,
@@ -2488,25 +2488,26 @@ span.preview-header-sender-image {
     padding-top: 2px;
     width: 72px !important; }
   .k-taskgeneraltab .k-date-panel .x-form-item:last-child label {
-    padding: 0 9px;
+    text-align: left;
+    padding: 0 6px;
     line-height: 20px;
     padding-top: 2px;
-    text-align: right; }
+    width: 110px !important; }
 .k-appointmentcreatetab .k-busystatus-panel,
 .k-appointmentcreatetab .k-label-panel,
 .k-appointmentcreatetab .k-status-panel,
-.k-appointmentcreatetab .k-priority-complete-panel,
+.k-appointmentcreatetab .k-priority-complete-panel {
+  padding: 6px;
+  border-bottom: 1px solid #e6e6e6; }
 .k-taskgeneraltab .k-busystatus-panel,
 .k-taskgeneraltab .k-label-panel,
 .k-taskgeneraltab .k-status-panel,
 .k-taskgeneraltab .k-priority-complete-panel {
-  padding: 6px;
-  border-bottom: 1px solid #e6e6e6; }
+  padding: 6px; }
 .k-taskgeneraltab .k-busystatus-panel,
 .k-taskgeneraltab .k-status-panel,
 .k-taskgeneraltab .k-priority-complete-panel {
-  padding-left: 12px;
-  border-left: 1px solid #e6e6e6; }
+  padding-left: 12px; }
   .k-appointmentcreatetab .k-busystatus-panel label,
   .k-appointmentcreatetab .k-label-panel label,
   .k-appointmentcreatetab .k-status-panel label,
@@ -2530,6 +2531,11 @@ span.preview-header-sender-image {
   .k-taskgeneraltab .k-taskrequestsettings .x-form-check-wrap {
     line-height: 20px;
     padding-top: 2px; }
+  .k-taskgeneraltab .k-reminder-panel .k-reminder-label {
+    text-align: left;
+    padding: 0 6px;
+    line-height: 28px;
+    width: 84px !important; }
 .k-appointmentcreatetab .k-taskrequestsettings,
 .k-taskgeneraltab .k-taskrequestsettings {
   border-bottom: 1px solid #e6e6e6; }
@@ -2543,11 +2549,14 @@ span.preview-header-sender-image {
 .k-taskgeneraltab .k-extrainfopanel {
   padding: 6px;
   padding-bottom: 0; }
-.k-appointmentcreatetab .filler,
-.k-taskgeneraltab .filler {
+.k-appointmentcreatetab .filler {
   padding: 6px;
   padding-left: 12px;
   border-left: 1px solid #e6e6e6;
+  height: 24px; }
+.k-taskgeneraltab .filler {
+  padding: 6px;
+  padding-left: 12px;
   height: 24px; }
 .k-appointmentcreatetab .k-field-attachments,
 .k-taskgeneraltab .k-field-attachments {

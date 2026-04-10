@@ -155,8 +155,9 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			cls: 'k-subject-panel',
 			layout: 'form',
 			ref: 'subjectPanel',
-			labelWidth: 85,
+			labelWidth: 79,
 			labelAlign: 'left',
+			autoHeight: true,
 			border: false,
 			items: [{
 				xtype: 'textfield',
@@ -220,7 +221,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				ref: '../../dateField',
 				allowBlank: true,
 				defaultPeriod: container.getSettingsModel().get('zarafa/v1/contexts/task/default_task_period'),
-				width: 450,
+				width: 480,
 				layout: 'hbox',
 				listeners: {
 					change: this.onDateRangeFieldChange,
@@ -231,13 +232,14 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 					labelWidth: 79,
 					labelAlign: 'left',
 					cls: 'from-field',
-					width: 200
+					width: 220
 				},
 				endFieldConfig: {
 					fieldLabel: _('Due date'),
 					labelWidth: 110,
+					labelAlign: 'left',
 					cls: 'to-field',
-					width: 200
+					width: 250
 				}
 			}]
 		};
@@ -365,15 +367,22 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				xtype: 'zarafa.compositefield',
 				autoHeight: true,
 				items: [{
+					xtype: 'label',
+					text: _('Reminder') + ':',
+					width: 84,
+					cls: 'k-reminder-label'
+				},{
 					xtype: 'checkbox',
+					ref: '../../../reminderCheckbox',
 					name: 'reminder',
-					width: 79,
-					boxLabel: _('Reminder') + ':',
+					width: 20,
 					handler: this.onToggleReminder,
 					scope: this
 				},{
 					xtype:'zarafa.datetimefield',
+					ref: '../../../reminderTimeField',
 					name: 'reminder_time',
+					disabled: true,
 					width: 217,
 					timeIncrement: container.getSettingsModel().get('zarafa/v1/contexts/task/reminder_time_stepping'),
 					listeners:{
@@ -611,6 +620,10 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			record.set('flag_due_by', record.get('reminder_time'));
 		}
 
+		if (contentReset || record.isModifiedSinceLastUpdate('reminder')) {
+			this.reminderTimeField.setDisabled(!record.get('reminder'));
+		}
+
 		this.getForm().loadRecord(record);
 	},
 
@@ -710,6 +723,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 */
 	onToggleReminder: function(checkbox, checked)
 	{
+		this.reminderTimeField.setDisabled(!checked);
 		this.record.beginEdit();
 		this.record.set('reminder', checked);
 		if (checked) {
