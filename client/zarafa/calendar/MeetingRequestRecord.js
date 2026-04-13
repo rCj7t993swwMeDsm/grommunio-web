@@ -193,6 +193,29 @@ Zarafa.calendar.MeetingRequestRecord = Ext.extend(Zarafa.calendar.AppointmentRec
 	 * as we don't need this functionality in {@link Zarafa.calendar.MeetingRequestRecord MeetingRequestRecord}.
 	 * @hide
 	 */
-	updateMeetingRecipients: Ext.emptyFn
+	updateMeetingRecipients: Ext.emptyFn,
+
+	/**
+	 * Meeting requests and responses live in mail folders and should be exported as
+	 * RFC822 .eml streams (and zipped together with regular mails when multiple items
+	 * are selected), not as ICS like a calendar appointment. Override the
+	 * {@link Zarafa.calendar.AppointmentRecord AppointmentRecord} ICS URL with the
+	 * mail-style eml/ZIP URL from {@link Zarafa.core.data.IPMRecord IPMRecord}.
+	 * @param {Boolean} allAsZip (optional) True to download all selected messages as ZIP
+	 * @return {String} URL for downloading message as eml file or ZIP archive.
+	 */
+	getDownloadMessageUrl: function(allAsZip)
+	{
+		var url = container.getBaseURL();
+		url = Ext.urlAppend(url, 'load=download_message');
+		url = Ext.urlAppend(url, 'storeid=' + this.get('store_entryid'));
+
+		if (!allAsZip) {
+			url = Ext.urlAppend(url, 'entryid=' + this.get('entryid'));
+		} else {
+			url = Ext.urlAppend(url, 'AllAsZip=true');
+		}
+		return url;
+	}
 });
 Zarafa.core.data.RecordFactory.setBaseClassToMessageClass('IPM.Schedule', Zarafa.calendar.MeetingRequestRecord);
