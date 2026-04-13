@@ -268,6 +268,15 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 				}
 			});
 
+			// The HTML parser hoists <style> elements from an email's <head>
+			// into the document head. Preserve them by moving them into the
+			// body so they still apply when we later write body.innerHTML
+			// into the preview iframe (which drops head content).
+			var headStyles = doc.head ? doc.head.querySelectorAll('style') : [];
+			Ext.each(headStyles, function(node) {
+				doc.body.insertBefore(node, doc.body.firstChild);
+			});
+
 			return doc.body.innerHTML;
 		} catch (ex) {
 			// Fallback for malformed markup/parser failures.
