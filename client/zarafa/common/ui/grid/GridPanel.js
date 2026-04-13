@@ -451,17 +451,25 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 	{
 		var view = this.getView();
 		var store = this.getStore();
+		var selection = selectionModel.getSelections();
 
-		// First remove the multiple selection class from all rows
-		for ( var i=0; i<store.getCount(); i++ ){
-			view.removeRowClass(i, 'zarafa-multiselection');
+		// Remove the multiselection class from previously marked rows using a DOM query
+		// which is safe across sorting, store reloads, and view refreshes.
+		var el = view.mainBody || view.el;
+		if ( el ){
+			var rows = el.query('.zarafa-multiselection');
+			for ( var i=0; i<rows.length; i++ ){
+				Ext.fly(rows[i]).removeClass('zarafa-multiselection');
+			}
 		}
 
-		var selection = selectionModel.getSelections();
 		if ( selection.length > 1 ){
 			// Multiple rows are selected. Make sure they all have the multiple selection class.
 			Ext.each(selection, function(record){
-				view.addRowClass(store.indexOf(record), 'zarafa-multiselection');
+				var idx = store.indexOf(record);
+				if ( idx >= 0 ) {
+					view.addRowClass(idx, 'zarafa-multiselection');
+				}
 			}, this);
 		}
 	},
