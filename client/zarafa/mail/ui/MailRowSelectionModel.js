@@ -197,6 +197,84 @@ Zarafa.mail.ui.MailRowSelectionModel = Ext.extend(Ext.grid.RowSelectionModel, {
 	},
 
 	/**
+	 * Overridden to batch select all rows without firing events per row.
+	 * The base implementation calls selectRow in a loop for every row.
+	 */
+	selectAll: function()
+	{
+		var count = this.grid.store.getCount();
+		if (this.isLocked() || count === 0) {
+			return;
+		}
+		// Clear selection data without per-row deselect events,
+		// matching the base selectAll behavior.
+		this.selections.clear();
+		this.selectRange(0, count - 1, true);
+	},
+
+	/**
+	 * Overridden to batch select rows without firing events per row.
+	 * The base implementation calls selectRow in a loop, which fires
+	 * selectionchange and rowselect events for every row — causing
+	 * O(n²) DOM updates when selecting hundreds of rows.
+	 *
+	 * @param {Number} startRow The index of the first row in the range
+	 * @param {Number} endRow The index of the last row in the range
+	 * @param {Boolean} keepExisting (optional) True to retain existing selections
+	 */
+	selectRange: function(startRow, endRow, keepExisting)
+	{
+		if (this.isLocked()) {
+			return;
+		}
+		if (!keepExisting) {
+			this.clearSelections();
+		}
+
+		var view = this.grid.getView();
+		var store = this.grid.store;
+		var count = Math.abs(endRow - startRow) + 1;
+
+		// For small selections, use the default per-row approach
+		if (count <= 20) {
+			var i;
+			if (startRow <= endRow) {
+				for (i = startRow; i <= endRow; i++) {
+					this.selectRow(i, true);
+				}
+			} else {
+				for (i = startRow; i >= endRow; i--) {
+					this.selectRow(i, true);
+				}
+			}
+			return;
+		}
+
+		// For large selections, suppress per-row events and view updates
+		this.silent = true;
+		var step = (startRow <= endRow) ? 1 : -1;
+		var end = endRow + step;
+		for (var i = startRow; i !== end; i += step) {
+			if (i < 0 || i >= store.getCount()) {
+				continue;
+			}
+			if (keepExisting && this.isSelected(i)) {
+				continue;
+			}
+			var r = store.getAt(i);
+			if (r && this.fireEvent('beforerowselect', this, i, true, r) !== false) {
+				this.selections.add(r);
+				this.last = this.lastActive = i;
+				view.onRowSelect(i);
+			}
+		}
+		this.silent = false;
+
+		// Fire events once for the entire batch
+		this.fireEvent('selectionchange', this);
+	},
+
+	/**
 	 * Handler for the key press event.
 	 *
 	 * Note: we need to modify this function because on dynamically addintion of rows in grid
