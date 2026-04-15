@@ -430,7 +430,7 @@ Zarafa.common.ui.grid.Renderers = {
 			// Add one class so the tooltip can easily get the timestamp of the date.
 			p.css += ' k-date-nice k-ts-'+value.getTime();
 
-			return value.getNiceFormat();
+			return value.getNiceFormat(true);
 		} else {
 			return value.formatDefaultTime(_('l d/m/Y {0}'));
 		}
