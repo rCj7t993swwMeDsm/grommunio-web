@@ -557,43 +557,31 @@ Ext.apply(Date.prototype, {
 
 		// Check for today. We'll only use time then.
 		if ( d.getTime() === now.getTime() ){
-			if ( includeTime ){
-				return this.formatDefaultTime();
-			} else {
-				return _('Today');
-			}
+			return includeTime ? this.formatDefaultTime() : _('Today');
 		}
 
 		// Check for tomorrow.
 		if ( d.add(Date.DAY, -1).getTime() === now.getTime() ){
-			if ( includeTime ){
-				return _('Tomorrow') + ' ' + this.formatDefaultTime();
-			} else {
-				return _('Tomorrow');
-			}
+			return includeTime ? _('Tomorrow') + ' ' + this.formatDefaultTime() :  _('Tomorrow');
 		}
 
-		// Check for future dates. We'll only show the date then.
+		// Check for future dates.
 		if ( d > now ){
-			return this.format(_('d-m-Y'));
+			return includeTime ? this.format(_('d-m-Y G:i')) : this.format(_('d-m-Y'));
 		}
 
 		// Check for past week. We'll use day (name) + time then.
 		if ( d.add(Date.DAY, 6) >= now ){
-			if ( includeTime ){
-				return this.formatDefaultTime(_('D {0}'));
-			} else {
-				return this.format(_('D d-m'));
-			}
+			return includeTime ? this.formatDefaultTime(_('D {0}')) : this.format(_('D d-m'));
 		}
 
-		// Check for two weeks ago. We'll use the day (name) + date (without year)
+		// Check for two weeks ago. We'll use the day (name) + date (optionally time) without year
 		if ( d.add(Date.DAY, 14) >= now ){
-			return this.format(_('D d-m'));
+			return includeTime ? this.format(_('D d-m G:i')) : this.format(_('D d-m'));
 		}
 
-		// For anything older than two weeks ago, we'll show the date
-		return this.format(_('d-m-Y'));
+		// For anything older than two weeks ago, we'll show the date or date time
+		return includeTime ? this.format(_('d-m-Y G:i')) : this.format(_('d-m-Y'));
 	},
 
 	/**
@@ -612,6 +600,7 @@ Ext.apply(Date.prototype, {
 		} else {
 			newFormat = timeFormat;
 		}
+console.log("formatDefaultTime:", timeFormat, this.format(newFormat));
 		return this.format(newFormat);
 	}
 });
