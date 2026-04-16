@@ -600,7 +600,6 @@ Ext.apply(Date.prototype, {
 		} else {
 			newFormat = timeFormat;
 		}
-console.log("formatDefaultTime:", timeFormat, this.format(newFormat));
 		return this.format(newFormat);
 	}
 });
