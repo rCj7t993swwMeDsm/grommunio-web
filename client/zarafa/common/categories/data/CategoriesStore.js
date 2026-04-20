@@ -144,7 +144,7 @@ Zarafa.common.categories.data.CategoriesStore = Ext.extend(Ext.data.ArrayStore, 
 			};
 		});
 
-		container.getPersistentSettingsModel().set(this.settingsKey, categories);
+		container.getPersistentSettingsModel().set(this.settingsKey, categories, true);
 	},
 
 	/**

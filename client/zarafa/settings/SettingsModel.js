@@ -241,9 +241,10 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 * Transaction completion handler which is called by {@link #endEdit} when
 	 * a setting transaction has been completed or by {@link #setSettings} and {@link #removeSettings}
 	 * when no transaction is being used. This will call {@link #save} to send all changes to the server.
+	 * @param {Boolean} persistent whether to set a persistent setting
 	 * @private
 	 */
-	afterEdit: function()
+	afterEdit: function(persistent = false)
 	{
 		var needsSave = false;
 
@@ -263,7 +264,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 		}
 
 		if (needsSave === true && this.autoSave !== false) {
-			this.scheduleSave();
+			persistent ? this.save() : this.scheduleSave();
 		}
 	},
 
@@ -678,9 +679,10 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 * and also sent to the server. If saving the setting to the server failed, the {@link #exception} event will be fired.
 	 * @param {String} path the key path of the value.
 	 * @param {String} value value to set.
+	 * @param {Boolean} persistent whether to set a persistent setting
 	 * @return {String} the value of the requested path, or undefined if it doesn't exist.
 	 */
-	set: function(path, value)
+	set: function(path, value, persistent = false)
 	{
 		path = this.getPath(path);
 
@@ -703,7 +705,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 		// If we are not editing in a batch, save the changes now.
 		// Otherwise wait for endEdit.
 		if (this.editing === false) {
-			this.afterEdit();
+			this.afterEdit(persistent);
 		}
 	},
 

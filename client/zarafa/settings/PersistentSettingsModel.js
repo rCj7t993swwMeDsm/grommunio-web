@@ -17,14 +17,34 @@ Zarafa.settings.PersistentSettingsModel = Ext.extend(Zarafa.settings.SettingsMod
 	constructor: function(config)
 	{
 		config = config || {};
-        if (!Ext.isObject(config.defaults)) {
+		if (!Ext.isObject(config.defaults)) {
 			config.defaults = Zarafa.settings.data.PersistentSettingsDefaultValue.getDefaultValues();
 		}
 
 		Zarafa.settings.PersistentSettingsModel.superclass.constructor.call(this, config);
-    },
+	},
 
-    /**
+	/**
+	 * Save the persistentsettings to the server, this will call {@link #execute} for
+	 * the different {@link Zarafa.core.Actions actions} which are supposed
+	 * to be executed on the server.
+	 */
+	save: function()
+	{
+		if (!Ext.isEmpty(this.deleted)) {
+			this.execute(Zarafa.core.Actions['delete'], this.deleted);
+		}
+
+		if (!Ext.isEmpty(this.modified)) {
+			this.execute(Zarafa.core.Actions['set'], this.modified);
+		}
+
+		if (!Ext.isEmpty(this.resetSettings)) {
+			this.execute(Zarafa.core.Actions['reset'], this.resetSettings);
+		}
+	},
+
+	/**
 	 * Send the save action to the server. Overridden to set the actionData in 'persistentSetting' instead of 'setting'.
 	 * @param {Zarafa.core.Actions} action The action which must be performed on the server
 	 * @param {Object} parameters The action parameters which must be send to the server.
@@ -43,8 +63,8 @@ Zarafa.settings.PersistentSettingsModel = Ext.extend(Zarafa.settings.SettingsMod
 					proxy: this,
 					action: Ext.data.Api.actions['update'],
 					options: {
-						action 		: action,
-						parameters 	: parameters
+						action: action,
+						parameters: parameters
 					},
 					callback:  this.onExecuteComplete,
 					scope: this
