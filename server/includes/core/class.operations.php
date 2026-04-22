@@ -3798,6 +3798,7 @@ class Operations {
 		$recipientTable = mapi_message_getrecipienttable($message);
 		if ($recipientTable) {
 			$recipients = mapi_table_queryallrows($recipientTable, $GLOBALS['properties']->getRecipientProperties());
+			$addrBook = $GLOBALS["mapisession"]->getAddressbook(false, true);
 
 			foreach ($recipients as $recipientRow) {
 				if ($excludeDeleted && isset($recipientRow[PR_RECIPIENT_FLAGS]) && (($recipientRow[PR_RECIPIENT_FLAGS] & recipExceptionalDeleted) == recipExceptionalDeleted)) {
@@ -3857,6 +3858,19 @@ class Operations {
 				$props['recipient_trackstatus'] = $recipientRow[PR_RECIPIENT_TRACKSTATUS] ?? olRecipientTrackStatusNone;
 				$props['recipient_trackstatus_time'] = $recipientRow[PR_RECIPIENT_TRACKSTATUS_TIME] ?? null;
 
+				// check if EX-type recipients are really in the address book
+				if ($props['address_type'] === 'EX') {
+					try {
+						$abentry = mapi_ab_openentry($addrBook, $props['entryid']);
+					}
+					catch (MAPIException $e) {
+						if ($e->getCode() == MAPI_E_NOT_FOUND || $e->getCode() == MAPI_E_INVALID_PARAMETER) {
+							$props['email_address'] = $props['smtp_address'];
+							$props['address_type'] = 'SMTP';
+							$props['entryid'] = bin2hex(mapi_createoneoff($props['display_name'], $props['address_type'], $props['smtp_address'], MAPI_UNICODE));
+						}
+					}
+				}
 				array_push($recipientsInfo, ["props" => $props]);
 			}
 		}
