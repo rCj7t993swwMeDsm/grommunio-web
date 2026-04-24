@@ -487,6 +487,8 @@ class ContactItemModule extends ItemModule {
 		$diff = $d2->diff($d1);
 		$month = $diff->days * 24 * 60;
 
+		$defAllDayReminder = $GLOBALS['settings']->get('zarafa/v1/contexts/calendar/default_allday_reminder_time', 1080);
+
 		$props = [
 			'message_class' => 'IPM.Appointment',
 			'icon_index' => 1025,
@@ -503,9 +505,9 @@ class ContactItemModule extends ItemModule {
 			'alldayevent' => true,
 			'duration' => 1440,
 			'reminder' => true,
-			'reminder_minutes' => 1080,
+			'reminder_minutes' => $defAllDayReminder,
 			'reminder_time' => $startDateUTC,
-			'flagdueby' => $startDateUTC - (1080 * 60),
+			'flagdueby' => $startDateUTC - ($defAllDayReminder * 60),
 
 			'recurring' => true,
 			'recurring_reset' => true,
