@@ -135,6 +135,7 @@ class IndexSqlite extends SQLite3 {
 					'message_id' => $row['message_id'] ?? null,
 					'message_class' => $row['message_class'] ?? null,
 				]);
+
 				return;
 			}
 		}
@@ -144,6 +145,7 @@ class IndexSqlite extends SQLite3 {
 				'message_date' => $row['date'] ?? null,
 				'date_start' => $date_start,
 			]);
+
 			return;
 		}
 		if ($date_end !== null && $row['date'] > $date_end) {
@@ -152,6 +154,7 @@ class IndexSqlite extends SQLite3 {
 				'message_date' => $row['date'] ?? null,
 				'date_end' => $date_end,
 			]);
+
 			return;
 		}
 		if ($unread && $row['readflag']) {
@@ -159,6 +162,7 @@ class IndexSqlite extends SQLite3 {
 				'message_id' => $row['message_id'] ?? null,
 				'readflag' => $row['readflag'] ?? null,
 			]);
+
 			return;
 		}
 		if ($has_attachments && !$row['attach_indexed']) {
@@ -166,6 +170,7 @@ class IndexSqlite extends SQLite3 {
 				'message_id' => $row['message_id'] ?? null,
 				'attach_indexed' => $row['attach_indexed'] ?? null,
 			]);
+
 			return;
 		}
 
@@ -182,6 +187,7 @@ class IndexSqlite extends SQLite3 {
 				$details['hresult'] = mapi_last_hresult();
 			}
 			$this->logDebug('MAPI linkmessage failed', $details);
+
 			return;
 		}
 		++$this->count;
@@ -201,10 +207,11 @@ class IndexSqlite extends SQLite3 {
 			'descriptor' => $descriptor,
 		]);
 		if ($this->openResult) {
-			$this->logDebug('Search aborted: index database unavailable', ['open_result' => $this->openResult]);
+			error_log('Search aborted: index database unavailable');
+
 			return false;
 		}
-		$whereFolderids = '';
+		$whereFolderids = [];
 		if (isset($folder_entryid)) {
 			try {
 				$folder = mapi_msgstore_openentry($this->store, $folder_entryid);
@@ -216,14 +223,13 @@ class IndexSqlite extends SQLite3 {
 					return false;
 				}
 				$folder_id = IndexSqlite::get_gc_value((int) $tmp_props[PR_FOLDER_ID]);
-				$whereFolderids .= "c.folder_id in (" . $folder_id . ", ";
+				$whereFolderids[] = $folder_id;
 				if ($recursive) {
 					$this->getWhereFolderids($folder, $whereFolderids);
 				}
-				$whereFolderids = substr($whereFolderids, 0, -2) . ") AND ";
 				$this->logDebug('Folder scope resolved', [
 					'root_folder_gc_id' => $folder_id,
-					'folder_clause' => rtrim($whereFolderids),
+					'folder_ids' => $whereFolderids,
 				]);
 			}
 			catch (Exception $e) {
@@ -232,14 +238,6 @@ class IndexSqlite extends SQLite3 {
 
 				return false;
 			}
-		}
-		$sql_string = "SELECT c.message_id, c.entryid, c.folder_id, " .
-			"c.message_class, c.date, c.readflag, c.attach_indexed " .
-			"FROM msg_content c " .
-			"JOIN messages m ON c.message_id = m.rowid " .
-			"WHERE ";
-		if (!empty($whereFolderids)) {
-			$sql_string .= $whereFolderids;
 		}
 		$ftsAst = $descriptor['ast'] ?? null;
 		$message_classes = $descriptor['message_classes'] ?? null;
@@ -257,39 +255,70 @@ class IndexSqlite extends SQLite3 {
 
 		$ftsQuery = $this->compileFtsExpression($ftsAst);
 		if ($ftsQuery === null || $ftsQuery === '') {
-			$this->logDebug('FTS query compilation returned empty expression', [
-				'ast' => $ftsAst,
-			]);
+			error_log(sprintf("FTS query compilation returned empty expression: ast => %s", $ftsAst));
+
 			return false;
 		}
 
-		$sql_string .= "messages MATCH '" . $ftsQuery . "'";
+		$whereClauses = [];
+		$bindings = [];
+
+		if (!empty($whereFolderids)) {
+			$folderPlaceholders = [];
+			foreach (array_values(array_unique(array_map("intval", $whereFolderids))) as $index => $folderId) {
+				$placeholder = ":folder_id_" . $index;
+				$folderPlaceholders[] = $placeholder;
+				$bindings[] = [$placeholder, $folderId, SQLITE3_INTEGER];
+			}
+			$whereClauses[] = "c.folder_id in (" . implode(", ", $folderPlaceholders) . ")";
+		}
+
+		$whereClauses[] = "messages MATCH :fts_query";
+		$bindings[] = [":fts_query", $ftsQuery, SQLITE3_TEXT];
 
 		// Push filters into SQL so LIMIT applies to already-filtered rows.
 		// PHP-side filtering in try_insert_content() is kept as a safety net.
 		if ($date_start !== null) {
-			$sql_string .= " AND c.date >= " . intval($date_start);
+			$whereClauses[] = "c.date >= :date_start";
+			$bindings[] = [":date_start", (int) $date_start, SQLITE3_INTEGER];
 		}
 		if ($date_end !== null) {
-			$sql_string .= " AND c.date <= " . intval($date_end);
+			$whereClauses[] = "c.date <= :date_end";
+			$bindings[] = [":date_end", (int) $date_end, SQLITE3_INTEGER];
 		}
 		if ($unread) {
-			$sql_string .= " AND (c.readflag IS NULL OR c.readflag = 0)";
+			$whereClauses[] = "(c.readflag IS NULL OR c.readflag = 0)";
 		}
 		if ($has_attachments) {
-			$sql_string .= " AND c.attach_indexed = 1";
+			$whereClauses[] = "c.attach_indexed = 1";
 		}
 		if (is_array($message_classes) && $message_classes !== []) {
 			$classConditions = [];
-			foreach ($message_classes as $mc) {
-				$classConditions[] = "c.message_class LIKE '" . SQLite3::escapeString((string) $mc) . "%'";
+			foreach (array_values($message_classes) as $index => $mc) {
+				$placeholder = ":message_class_" . $index;
+				$classConditions[] = "c.message_class LIKE " . $placeholder;
+				$bindings[] = [$placeholder, (string) $mc . "%", SQLITE3_TEXT];
 			}
-			$sql_string .= " AND (" . implode(" OR ", $classConditions) . ")";
+			$whereClauses[] = "(" . implode(" OR ", $classConditions) . ")";
 		}
 
 		$this->count = 0;
-		$sql_string .= " ORDER BY c.date DESC LIMIT " . MAX_FTS_RESULT_ITEMS;
-		$this->logDebug('Executing SQLite FTS query', ['sql' => $sql_string]);
+		$bindings[] = [":limit", (int) MAX_FTS_RESULT_ITEMS, SQLITE3_INTEGER];
+		$sql = "SELECT c.message_id, c.entryid, c.folder_id, " .
+			"c.message_class, c.date, c.readflag, c.attach_indexed " .
+			"FROM msg_content c " .
+			"JOIN messages m ON c.message_id = m.rowid " .
+			"WHERE " . implode(" AND ", $whereClauses) .
+			" ORDER BY c.date DESC LIMIT :limit";
+		$this->logDebug('Executing SQLite FTS query', [
+			'sql' => $sql,
+			'bindings' => array_map(static function ($binding) {
+				return [
+					'name' => $binding[0],
+					'value' => $binding[1],
+				];
+			}, $bindings),
+		]);
 
 		// Tighten PHP's execution-time limit for the duration of the
 		// query + result processing so a single expensive search cannot
@@ -299,18 +328,45 @@ class IndexSqlite extends SQLite3 {
 			set_time_limit(MAX_FTS_EXECUTION_TIME);
 		}
 		$deadline = MAX_FTS_EXECUTION_TIME > 0 ? microtime(true) + MAX_FTS_EXECUTION_TIME : 0;
+		$matchedRows = 0;
+		$sampleRows = [];
+		$stmt = null;
+		$results = null;
 
 		try {
-			$results = $this->query($sql_string);
-			if ($results === false) {
-				$this->logDebug('SQLite query execution failed', [
-					'error_code' => $this->lastErrorCode(),
-					'error_message' => $this->lastErrorMsg(),
-				]);
+			$stmt = $this->prepare($sql);
+			if ($stmt === false) {
+				error_log(sprintf(
+					"SQLite query prepare failed: %s (%d)",
+					$this->lastErrorMsg(),
+					$this->lastErrorCode()
+				));
+
 				return false;
 			}
-			$matchedRows = 0;
-			$sampleRows = [];
+			foreach ($bindings as $binding) {
+				if (!$stmt->bindValue($binding[0], $binding[1], $binding[2])) {
+					error_log(sprintf(
+						"SQLite query bind failed for param '%s' with value '%s': %s (%d)",
+						$binding[0],
+						$binding[1],
+						$this->lastErrorMsg(),
+						$this->lastErrorCode()
+					));
+
+					return false;
+				}
+			}
+			$results = $stmt->execute();
+			if ($results === false) {
+				error_log(sprintf(
+					"SQLite query execution failed: %s (%d)",
+					$this->lastErrorMsg(),
+					$this->lastErrorCode()
+				));
+
+				return false;
+			}
 			while (($row = $results->fetchArray(SQLITE3_ASSOC)) && !$this->result_full()) {
 				// Graceful abort when the wall-clock deadline is reached
 				// so we return partial results instead of letting PHP
@@ -347,6 +403,12 @@ class IndexSqlite extends SQLite3 {
 			}
 		}
 		finally {
+			if ($results instanceof SQLite3Result) {
+				$results->finalize();
+			}
+			if ($stmt instanceof SQLite3Stmt) {
+				$stmt->close();
+			}
 			// Always restore the original time limit, even after an error.
 			set_time_limit($prevTimeLimit);
 		}
@@ -356,7 +418,7 @@ class IndexSqlite extends SQLite3 {
 			'matched_rows' => $matchedRows,
 			'linked_messages' => $this->count,
 			'limit_reached' => $this->result_full(),
-			'folder_clause' => $whereFolderids !== '' ? rtrim($whereFolderids) : null,
+			'folder_ids' => $whereFolderids !== [] ? $whereFolderids : null,
 			'sample_messages' => $sampleRows,
 			'duration_ms' => $durationMs,
 		]);
@@ -389,6 +451,7 @@ class IndexSqlite extends SQLite3 {
 			if (count($segments) === 1) {
 				return $segments[0];
 			}
+
 			return '(' . implode(' OR ', array_map(function ($s) {
 				return '(' . $s . ')';
 			}, $segments)) . ')';
@@ -401,6 +464,7 @@ class IndexSqlite extends SQLite3 {
 			if ($child === null) {
 				return null;
 			}
+
 			return 'NOT (' . $child . ')';
 		}
 		if ($operator === 'AND' || $operator === 'OR') {
@@ -416,7 +480,8 @@ class IndexSqlite extends SQLite3 {
 					if ($compiled !== null) {
 						$negativeParts[] = $compiled;
 					}
-				} else {
+				}
+				else {
 					$compiled = $this->compileFtsExpression($child);
 					if ($compiled !== null) {
 						$positiveParts[] = $compiled;
@@ -432,7 +497,8 @@ class IndexSqlite extends SQLite3 {
 			}
 			if (count($positiveParts) === 1) {
 				$result = $positiveParts[0];
-			} else {
+			}
+			else {
 				$wrapped = array_map(function ($segment) {
 					return '(' . $segment . ')';
 				}, $positiveParts);
@@ -441,6 +507,7 @@ class IndexSqlite extends SQLite3 {
 			foreach ($negativeParts as $neg) {
 				$result = '(' . $result . ') NOT (' . $neg . ')';
 			}
+
 			return $result;
 		}
 
@@ -461,6 +528,7 @@ class IndexSqlite extends SQLite3 {
 					'min_length' => $minLength,
 					'tokenizer' => SQLITE_FTS_TOKENIZER,
 				]);
+
 				continue;
 			}
 			$quoted[] = '"' . SQLite3::escapeString($word) . '"*';
@@ -472,6 +540,7 @@ class IndexSqlite extends SQLite3 {
 				break;
 			}
 		}
+
 		return $quoted;
 	}
 
@@ -503,11 +572,10 @@ class IndexSqlite extends SQLite3 {
 	}
 
 	/**
-	 * Returns the comma joined folderids for the WHERE clause in the SQL
-	 * statement.
+	 * Appends the recursive folder ids for the search scope.
 	 *
-	 * @param mixed  $folder
-	 * @param string $whereFolderids
+	 * @param mixed $folder
+	 * @param array $whereFolderids
 	 */
 	private function getWhereFolderids($folder, &$whereFolderids) {
 		/**
@@ -520,7 +588,7 @@ class IndexSqlite extends SQLite3 {
 		$rows = mapi_table_queryallrows($hierarchy, [PR_FOLDER_ID]);
 		foreach ($rows as $row) {
 			if (isset($row[PR_FOLDER_ID])) {
-				$whereFolderids .= IndexSqlite::get_gc_value((int) $row[PR_FOLDER_ID]) . ", ";
+				$whereFolderids[] = IndexSqlite::get_gc_value((int) $row[PR_FOLDER_ID]);
 			}
 		}
 	}
