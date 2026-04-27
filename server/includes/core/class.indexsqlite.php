@@ -447,13 +447,8 @@ class IndexSqlite extends SQLite3 {
 		return null;
 	}
 
-	private function sanitizeFtsInput($value) {
-		return preg_replace('/["*(){}:^~]/', '', (string) $value);
-	}
-
 	private function quoteWordsArray($search_string) {
-		$sanitized = $this->sanitizeFtsInput($search_string);
-		$words = preg_split('/\s+/', trim($sanitized), -1, PREG_SPLIT_NO_EMPTY);
+		$words = preg_split('/\s+/', trim($search_string), -1, PREG_SPLIT_NO_EMPTY);
 		// With the trigram tokenizer terms shorter than 3 characters cause a
 		// full table scan instead of an index lookup.  Skip them to avoid
 		// excessive CPU usage.
